@@ -1,8 +1,11 @@
 import React from 'react'
+import DesktopBackground from '../components/DesktopBackground'
 
 const page = () => {
   return (
-    <div>desktop</div>
+    <main>
+      <DesktopBackground/>
+    </main>
   )
 }
 
