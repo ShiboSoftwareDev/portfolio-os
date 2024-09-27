@@ -1,8 +1,11 @@
 import React from 'react'
+import MobileBackground from '../components/MobileBackground'
 
 const page = () => {
   return (
-    <div>mobile</div>
+    <main>
+      <MobileBackground/>
+    </main>
   )
 }
 
