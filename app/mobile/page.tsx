@@ -1,14 +1,14 @@
-import React from 'react'
-import MobileBackground from '../components/MobileBackground'
-import MobileGrid from '../components/MobileGrid'
+import React from "react";
+import MobileBackground from "../components/MobileBackground";
+import MobileGrid from "../components/MobileGrid";
 
 const page = () => {
   return (
     <>
-      <MobileBackground/>
-      <MobileGrid/>
+      <MobileBackground />
+      <MobileGrid />
     </>
-  )
-}
+  );
+};
 
-export default page
+export default page;
