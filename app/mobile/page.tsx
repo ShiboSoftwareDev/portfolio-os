@@ -1,11 +1,13 @@
 import React from 'react'
 import MobileBackground from '../components/MobileBackground'
+import MobileGrid from '../components/MobileGrid'
 
 const page = () => {
   return (
-    <main>
+    <>
       <MobileBackground/>
-    </main>
+      <MobileGrid/>
+    </>
   )
 }
 

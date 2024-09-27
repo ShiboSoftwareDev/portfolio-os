@@ -1,8 +1,8 @@
 const layout = ({children}:Readonly<{children:React.ReactNode}>) => {
   return (
-    <section>
+    <main>
       {children}
-    </section>
+    </main>
   )
 }
 

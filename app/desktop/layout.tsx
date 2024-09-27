@@ -1,11 +1,8 @@
-import DesktopTaskbar from "../components/DesktopTaskbar"
-
 const layout = ({children}:Readonly<{children:React.ReactNode}>) => {
   return (
-    <section>
+    <main>
       {children}
-      <DesktopTaskbar/>
-    </section>
+    </main>
   )
 }
 

@@ -1,8 +1,9 @@
 import React from 'react'
+import Welcome from './components/Welcome'
 
 const loading = () => {
   return (
-    <div className='text-white text-3xl'>loading</div>
+    <Welcome platform="null" />
   )
 }
 

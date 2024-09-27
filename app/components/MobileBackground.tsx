@@ -4,9 +4,9 @@ import backgroundImage from '../assets/mobile-background-1.jpeg'
 
 const MobileBackground = () => {
   return (
-    <div className='absolute -z-50 top-0 left-0 w-full h-full'>
+    <section className='absolute -z-50 top-0 left-0 w-full h-full'>
     <Image className='h-full w-full' alt='mobile-background-image' src={backgroundImage}/>
-  </div>)
+  </section>)
 }
 
 export default MobileBackground
