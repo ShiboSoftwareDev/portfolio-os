@@ -1,14 +1,10 @@
 "use client";
 
-import { useAboutAppStore } from "../programs/about-app";
-import { useAboutMeStore } from "../programs/about-me";
 import AVAILABLE_PROGRAMS from "../programs/available-programs";
+import { useProgramStore } from "../programs/program-store";
 
 const useProgramManager = () => {
-  const programState = {
-    AboutApp: useAboutAppStore((state) => state),
-    AboutMe: useAboutMeStore((state) => state),
-  };
+  const programState = useProgramStore((state) => state);
   return AVAILABLE_PROGRAMS.map((program) =>
     programState[program].state !== "closed"
       ? programState[program].useProcess()

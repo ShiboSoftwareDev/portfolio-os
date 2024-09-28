@@ -1,27 +1,31 @@
-import { create, type StateCreator } from "zustand";
+import type { StateCreator } from "zustand";
 import Process from "../components/Process";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { useProgramStore } from "./program-store";
 
 export interface AboutMe {
-  title: string;
-  markdown: string;
-  state: "closed" | "open" | "minimized";
-  useContent: () => React.ReactNode;
-  useProcess: () => React.ReactNode;
-  setTitle: (title: string) => void;
+  AboutMe: {
+    title: string;
+    markdown: string;
+    state: "closed" | "open" | "minimized";
+    useContent: () => React.ReactNode;
+    useProcess: () => React.ReactNode;
+    setTitle: (title: string) => void;
+  };
 }
 
 export const createAboutMeSlice: StateCreator<AboutMe, [], [], AboutMe> = (
   set,
 ) => ({
-  state: "open",
-  title: "About Me",
-  setTitle: (title: string) => {
-    set({ title: title });
-  },
+  AboutMe: {
+    state: "open",
+    title: "About Me",
+    setTitle: (title: string) => {
+      set((state) => ({ AboutMe: { ...state.AboutMe, title } }));
+    },
 
-  markdown: `
+    markdown: `
  - this should have info about me
   
   
@@ -40,25 +44,22 @@ A table:
 | - | - |
 `,
 
-  useContent: () => {
-    const markdown = useAboutMeStore((state) => state.markdown);
-    return (
-      <Markdown className="text-slate-600" remarkPlugins={[remarkGfm]}>
-        {markdown}
-      </Markdown>
-    );
-  },
-  useProcess: () => {
-    const title = useAboutMeStore((state) => state.title);
-    const content = useAboutMeStore((state) => state.useContent);
-    return (
-      <Process key={title} title={title}>
-        {content()}
-      </Process>
-    );
+    useContent: () => {
+      const markdown = useProgramStore((state) => state.AboutMe.markdown);
+      return (
+        <Markdown className="text-slate-600" remarkPlugins={[remarkGfm]}>
+          {markdown}
+        </Markdown>
+      );
+    },
+    useProcess: () => {
+      const title = useProgramStore((state) => state.AboutMe.title);
+      const content = useProgramStore((state) => state.AboutMe.useContent);
+      return (
+        <Process key={title} title={title}>
+          {content()}
+        </Process>
+      );
+    },
   },
 });
-
-export const useAboutMeStore = create<AboutMe>()((...a) => ({
-  ...createAboutMeSlice(...a),
-}));
