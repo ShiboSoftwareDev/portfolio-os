@@ -1,4 +1,4 @@
-import { create, StateCreator } from "zustand";
+import { create, type StateCreator } from "zustand";
 import Process from "../components/Process";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 export interface AboutMe {
   title: string;
   markdown: string;
+  state: "closed" | "open" | "minimized";
   useContent: () => React.ReactNode;
   useProcess: () => React.ReactNode;
   setTitle: (title: string) => void;
@@ -14,6 +15,7 @@ export interface AboutMe {
 export const createAboutMeSlice: StateCreator<AboutMe, [], [], AboutMe> = (
   set,
 ) => ({
+  state: "open",
   title: "About Me",
   setTitle: (title: string) => {
     set({ title: title });
@@ -49,7 +51,11 @@ A table:
   useProcess: () => {
     const title = useAboutMeStore((state) => state.title);
     const content = useAboutMeStore((state) => state.useContent);
-    return <Process title={title}>{content()}</Process>;
+    return (
+      <Process key={title} title={title}>
+        {content()}
+      </Process>
+    );
   },
 });
 

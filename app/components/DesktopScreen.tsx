@@ -1,18 +1,14 @@
 "use client";
 
-import React from "react";
-import { useAboutAppStore } from "../programs/about-app";
-import { useAboutMeStore } from "../programs/about-me";
+import type React from "react";
+import useProgramManager from "../helpers/useProgramManager";
 
 const DesktopScreen = () => {
-  const AboutApp = useAboutAppStore((state) => state.useProcess);
-  const AboutMe = useAboutMeStore((state) => state.useProcess);
-  // const setTitle = useBoundStore(state=>state.setTitle)
+  const programs = useProgramManager();
 
   return (
     <section className="absolute w-full h-full top-0 left-0">
-      {AboutMe()}
-      {AboutApp()}
+      {programs}
     </section>
   );
 };
