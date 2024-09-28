@@ -1,12 +1,20 @@
-import React from 'react'
-import Program from './Program'
+"use client";
+
+import React from "react";
+import { useAboutAppStore } from "../programs/about-app";
+import { useAboutMeStore } from "../programs/about-me";
 
 const DesktopScreen = () => {
-  return (
-    <section className='absolute w-full h-full top-0 left-0'>
-        <Program/>
-    </section>
-  )
-}
+  const AboutApp = useAboutAppStore((state) => state.useProcess);
+  const AboutMe = useAboutMeStore((state) => state.useProcess);
+  // const setTitle = useBoundStore(state=>state.setTitle)
 
-export default DesktopScreen
+  return (
+    <section className="absolute w-full h-full top-0 left-0">
+      {AboutMe()}
+      {AboutApp()}
+    </section>
+  );
+};
+
+export default DesktopScreen;
