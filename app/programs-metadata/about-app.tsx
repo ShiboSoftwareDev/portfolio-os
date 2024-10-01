@@ -18,11 +18,11 @@ export const createAboutAppSlice: StateCreator<
   [],
   AboutAppInterface
 > = (set) => {
-  const title = "About App";
+  const title = "About App" as const;
   return {
     AboutApp: {
       title: title,
-      programState: "open",
+      programState: "closed",
       setProgramState: (programState) => {
         set((state) => ({ AboutApp: { ...state.AboutApp, programState } }));
       },

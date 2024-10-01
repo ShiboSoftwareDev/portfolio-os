@@ -18,11 +18,11 @@ export const createAboutMeSlice: StateCreator<
   [],
   AboutMeInterface
 > = (set) => {
-  const title = "About Me";
+  const title = "About Me" as const;
   return {
     AboutMe: {
       title: title,
-      programState: "open",
+      programState: "closed",
       setProgramState: (programState) => {
         set((state) => ({ AboutMe: { ...state.AboutMe, programState } }));
       },

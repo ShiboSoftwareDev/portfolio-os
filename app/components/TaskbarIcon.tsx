@@ -16,17 +16,17 @@ const TaskbarIcon = ({
   const handleClick = () => {
     changeProgramState({
       programName,
-      newState: programState === "closed" ? "open" : "closed",
+      newState: programState !==  'open' ? 'open' : 'minimized'
     });
   };
+  const borderColor = programState === 'open' ? 'border-2 border-blue-500' : programState === 'minimized' ? 'border-b-2 border-blue-500' :'' 
   return (
     <div
       onClick={handleClick}
       onKeyDown={() => null}
-      className="bg-white h-[80%] aspect-square text-black text-center"
+      className={`bg-white h-[80%] aspect-square text-black text-center box-border ${borderColor} select-none`}
     >
       {programName}
-      {programState}
     </div>
   );
 };
