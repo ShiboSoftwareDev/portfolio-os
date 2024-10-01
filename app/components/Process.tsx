@@ -13,9 +13,11 @@ const Process = ({
   title: string;
 }) => {
   const nodeRef = React.useRef(null);
-  const programName = title.replace(' ','') as AVAILABLE_PROGRAM_NAMES
-  const programState = useProgramStore((state)=>state[programName].programState)
-  const hidden = programState === 'minimized' ? 'opacity-0' : ''
+  const programName = title.replace(" ", "") as AVAILABLE_PROGRAM_NAMES;
+  const programState = useProgramStore(
+    (state) => state[programName].programState,
+  );
+  const hidden = programState === "minimized" ? "opacity-0" : "";
   return (
     <Draggable bounds="parent" handle=".frame" nodeRef={nodeRef}>
       <div
