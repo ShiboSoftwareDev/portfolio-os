@@ -1,12 +1,12 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useDefinePlatform } from "./hooks/useDefinePlatform";
 import { useEffect } from "react";
 import Welcome from "./components/Welcome";
+import definePlatform from "./utils/definePlatform";
 
 export default function Home() {
-  const platform = useDefinePlatform();
+  const platform = definePlatform();
   const router = useRouter();
 
   useEffect(() => {
