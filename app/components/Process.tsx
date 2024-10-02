@@ -21,7 +21,7 @@ const Process = ({
   const [previousX, setPreviousX] = useState(50);
   const [previousY, setPreviousY] = useState(50);
   const changeProgramState = useChangeProgramState(programName);
-  const hidden = programState === "minimized" ? "opacity-0" : "";
+  const hidden = programState === "minimized" ? "hidden" : "";
   const [size, setSize] = useState("");
   return (
     <Draggable
@@ -47,21 +47,11 @@ const Process = ({
           <div className="flex flex-row gap-2 px-2">
             <p onClick={() => changeProgramState("minimized")}>-</p>
             <p
-              onClick={(e) => {
-                setSize(size === "fullscreen" ? "" : "fullscreen");
-                e.stopPropagation();
-              }}
+              onClick={() => setSize(size === "fullscreen" ? "" : "fullscreen")}
             >
               =
             </p>
-            <p
-              onClick={(e) => {
-                changeProgramState("closed");
-                e.stopPropagation();
-              }}
-            >
-              x
-            </p>
+            <p onClick={() => changeProgramState("closed")}>x</p>
           </div>
         </div>
         {children}
