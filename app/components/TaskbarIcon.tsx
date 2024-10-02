@@ -9,27 +9,24 @@ const TaskbarIcon = ({
 }: {
   programName: AVAILABLE_PROGRAM_NAMES;
 }) => {
-  const changeProgramState = useChangeProgramState();
+  const changeProgramState = useChangeProgramState(programName);
   const programState = useProgramStore(
     (state) => state[programName].programState,
   );
   const handleClick = () => {
-    changeProgramState({
-      programName,
-      newState: programState !== "open" ? "open" : "minimized",
-    });
+    changeProgramState(programState !== "open" ? "open" : "minimized");
   };
   const borderColor =
     programState === "open"
-      ? "border-2 border-blue-500"
+      ? "border-blue-500 bg-blue-500"
       : programState === "minimized"
-        ? "border-b-2 border-blue-500"
-        : "";
+        ? "border-blue-500 bg-white"
+        : "border-white bg-white";
   return (
     <div
       onClick={handleClick}
       onKeyDown={() => null}
-      className={`bg-white h-[80%] aspect-square text-black text-center box-border ${borderColor} select-none`}
+      className={`h-[80%] aspect-square text-black text-center box-border border-2 ${borderColor} select-none`}
     >
       {programName}
     </div>
