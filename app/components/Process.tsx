@@ -45,13 +45,15 @@ const Process = ({
         <div className="frame flex flex-row w-full items-center justify-between text-black">
           <h1>{title}</h1>
           <div className="flex flex-row gap-2 px-2">
-            <p onClick={() => changeProgramState("minimized")}>-</p>
+            <p onMouseDown={() => changeProgramState("minimized")}>-</p>
             <p
-              onClick={() => setSize(size === "fullscreen" ? "" : "fullscreen")}
+              onMouseDown={() =>
+                setSize(size === "fullscreen" ? "" : "fullscreen")
+              }
             >
               =
             </p>
-            <p onClick={() => changeProgramState("closed")}>x</p>
+            <p onMouseDown={() => changeProgramState("closed")}>x</p>
           </div>
         </div>
         {children}
