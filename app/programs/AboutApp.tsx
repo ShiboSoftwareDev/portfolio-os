@@ -4,22 +4,19 @@ import remarkGfm from "remark-gfm";
 
 const AboutApp = () => {
   const markdown = `
- - this should have info about the app 
-  
-  
-  
-  A paragraph with *emphasis* and **strong importance**.
+# Welcome to **Portfolio OS** 🌐
 
-> A block quote with ~strikethrough~ and a URL: https://reactjs.org.
+### 🛠️ Current Status: Alpha
 
-* Lists
-* [ ] todo
-* [x] done
+### ✨ Key Features:
+- 🖥️ **Desktop-like UI**: Enjoy a responsive, OS-like interface with windows, taskbars, and customizable icons—all running in the browser.
+- ⚡ **No Install Required**: Everything runs directly in your browser; no need for downloads or installations.
+- 📂 **Mock Applications**: Explore basic apps like a file manager, text editor, and settings panel to simulate OS functionality.
+- 🎨 **Personalized Workspace**: Customize your desktop environment with themes, backgrounds, and layout options.
 
-A table:
+---
 
-| a | b |
-| - | - |
+[GitHub](https://github.com/) | [Submit Feedback](https://github.com/)
 `;
 
   return (

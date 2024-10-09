@@ -40,7 +40,7 @@ const Process = ({
     >
       <div
         ref={nodeRef}
-        className={`absolute z-50 ${size === "fullscreen" ? "w-full h-full top-0 left-0" : "w-60 h-80"} ${hidden} border border-blue-600 bg-white`}
+        className={`absolute z-50 ${size === "fullscreen" ? "w-full h-full top-0 left-0" : "w-[300px] h-[600px]"} ${hidden} border border-blue-600 bg-white`}
       >
         <div className="frame flex flex-row w-full items-center justify-between text-black">
           <h1>{title}</h1>
