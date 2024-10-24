@@ -6,7 +6,6 @@ import { useProgramStore } from "../programs-metadata/program-store";
 import type { AVAILABLE_PROGRAM_NAMES } from "../programs-metadata/available-programs";
 import { useChangeProgramState } from "../helpers/useChangeProgramState";
 import { Resizable } from "re-resizable";
-import { win32 } from "path";
 
 const Process = ({
   children,
