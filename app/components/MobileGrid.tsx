@@ -9,7 +9,10 @@ const MobileGrid = () => {
   return (
     <section className="absolute top-0 left-0 w-full h-full grid grid-cols-3 justify-items-center items-center">
       {grid.map((_, index) => (
-        <div key={index} className="border border-white w-[80%] aspect-square">
+        <div
+          key={index}
+          className="rounded-3xl overflow-hidden w-[80%] aspect-square"
+        >
           {applications[index] ? <AppIcon title={applications[index]} /> : null}
         </div>
       ))}

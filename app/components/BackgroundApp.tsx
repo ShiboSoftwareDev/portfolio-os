@@ -23,12 +23,11 @@ const BackgroundApp = ({
     <div
       className={`absolute h-screen w-full border ${hidden} border-blue-600 z-50 bg-white`}
     >
-      <h1 className="text-black">{title}</h1>
       <h2
-        className="text-red-500"
+        className="absolute px-1 right-0 top-0 text-2xl text-red-500"
         onClick={() => changeApplicationState("closed")}
       >
-        close
+        X
       </h2>
       {children}
     </div>
