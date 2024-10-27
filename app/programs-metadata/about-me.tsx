@@ -1,10 +1,12 @@
 import type { StateCreator } from "zustand";
 import Process from "../components/Process";
 import AboutMe from "../programs/AboutMe";
+import { CgProfile } from "react-icons/cg";
 
 export interface AboutMeInterface {
   AboutMe: {
     title: string;
+    icon: React.ReactNode;
     programState: "closed" | "open" | "minimized";
     setProgramState: (programState: "closed" | "open" | "minimized") => void;
     setTitle: (title: string) => void;
@@ -22,6 +24,7 @@ export const createAboutMeSlice: StateCreator<
   return {
     AboutMe: {
       title: title,
+      icon: <CgProfile className="h-[80%] w-[80%]" color="black" />,
       programState: "closed",
       setProgramState: (programState) => {
         set((state) => ({ AboutMe: { ...state.AboutMe, programState } }));

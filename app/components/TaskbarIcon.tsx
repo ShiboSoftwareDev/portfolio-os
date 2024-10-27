@@ -13,6 +13,7 @@ const TaskbarIcon = ({
   const programState = useProgramStore(
     (state) => state[programName].programState,
   );
+  const icon = useProgramStore((state) => state[programName].icon);
   const handleClick = () => {
     changeProgramState(programState !== "open" ? "open" : "minimized");
   };
@@ -26,9 +27,9 @@ const TaskbarIcon = ({
     <div
       onClick={handleClick}
       onKeyDown={() => null}
-      className={`h-[80%] aspect-square text-black text-center box-border border-2 ${borderColor} select-none`}
+      className={`h-[80%] aspect-square flex justify-center items-center text-black text-center box-border rounded-[25%] border-2 ${borderColor} select-none`}
     >
-      {programName}
+      {icon}
     </div>
   );
 };

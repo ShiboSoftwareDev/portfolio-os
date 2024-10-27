@@ -55,18 +55,35 @@ const Process = ({
             setHeight(height + d.height);
           }}
         >
-          <div className="frame flex flex-row items-center justify-between text-black">
+          <div className="frame h-8 flex flex-row border-b border-blue-300 items-center justify-between text-black">
             <h1>{title}</h1>
-            <div className="flex flex-row gap-2 px-2">
-              <p onMouseDown={() => changeProgramState("minimized")}>-</p>
-              <p
-                onMouseDown={() => {
-                  setSize(size === "fullscreen" ? "" : "fullscreen");
-                }}
-              >
-                =
-              </p>
-              <p onMouseDown={() => changeProgramState("closed")}>x</p>
+            <div className="flex flex-row h-full">
+              <button className="h-full aspect-square border-l border-blue-300">
+                <p
+                  className="h-full aspect-square flex items-center justify-center"
+                  onMouseDown={() => changeProgramState("minimized")}
+                >
+                  -
+                </p>
+              </button>
+              <button className="h-full aspect-square border-l border-blue-300">
+                <p
+                  className="h-full aspect-square flex items-center justify-center"
+                  onMouseDown={() => {
+                    setSize(size === "fullscreen" ? "" : "fullscreen");
+                  }}
+                >
+                  =
+                </p>
+              </button>
+              <button className="h-full aspect-square border-l border-red-500 hover:bg-red-500">
+                <p
+                  className="h-full aspect-square flex items-center justify-center"
+                  onMouseDown={() => changeProgramState("closed")}
+                >
+                  x
+                </p>
+              </button>
             </div>
           </div>
           {children}

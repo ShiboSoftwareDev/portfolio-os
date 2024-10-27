@@ -7,7 +7,7 @@ const DesktopScreen = () => {
   const programs = useProgramManager();
 
   return (
-    <section className="absolute w-full h-full top-0 left-0">
+    <section className="absolute h-full w-full top-0 left-0">
       {programs}
     </section>
   );
