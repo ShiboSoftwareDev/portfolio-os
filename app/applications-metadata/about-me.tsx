@@ -1,10 +1,12 @@
 import type { StateCreator } from "zustand";
 import AboutMe from "../applications/AboutMe";
 import BackgroundApp from "../components/BackgroundApp";
+import { CgProfile } from "react-icons/cg";
 
 export interface AboutMeInterface {
   AboutMe: {
     title: string;
+    icon: React.ReactNode;
     applicationState: "closed" | "open" | "minimized";
     setApplicationState: (
       programState: "closed" | "open" | "minimized",
@@ -24,6 +26,7 @@ export const createAboutMeSlice: StateCreator<
   return {
     AboutMe: {
       title: title,
+      icon: <CgProfile className="h-[60%] w-[60%]" color="black" />,
       applicationState: "closed",
       setApplicationState: (applicationState) => {
         set((state) => ({ AboutMe: { ...state.AboutMe, applicationState } }));

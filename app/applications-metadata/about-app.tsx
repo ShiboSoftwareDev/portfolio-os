@@ -1,10 +1,12 @@
 import type { StateCreator } from "zustand";
 import AboutApp from "../applications/AboutApp";
 import BackgroundApp from "../components/BackgroundApp";
+import { IoMdInformationCircleOutline } from "react-icons/io";
 
 export interface AboutAppInterface {
   AboutApp: {
     title: string;
+    icon: React.ReactNode;
     applicationState: "closed" | "open" | "minimized";
     setApplicationState: (
       programState: "closed" | "open" | "minimized",
@@ -24,6 +26,12 @@ export const createAboutAppSlice: StateCreator<
   return {
     AboutApp: {
       title: title,
+      icon: (
+        <IoMdInformationCircleOutline
+          className="h-[60%] w-[60%]"
+          color="black"
+        />
+      ),
       applicationState: "closed",
       setApplicationState: (applicationState) => {
         set((state) => ({ AboutApp: { ...state.AboutApp, applicationState } }));
