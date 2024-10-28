@@ -18,7 +18,7 @@ const TaskbarIcon = ({
   );
   const icon = useProgramStore((state) => state[programName].icon);
   const handleClick = () => {
-   updateLastActive() 
+    updateLastActive();
     changeProgramState(programState !== "open" ? "open" : "minimized");
   };
   const borderColor =

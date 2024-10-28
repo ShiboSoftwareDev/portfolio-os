@@ -33,9 +33,11 @@ export const createAboutAppSlice: StateCreator<
         />
       ),
       lastActive: Date.now(),
-        updateLastActive: ()=>{
-        set((state) => ({AboutApp: {...state.AboutApp, lastActive:Date.now()}}))
-        },
+      updateLastActive: () => {
+        set((state) => ({
+          AboutApp: { ...state.AboutApp, lastActive: Date.now() },
+        }));
+      },
       programState: "closed",
       setProgramState: (programState) => {
         set((state) => ({ AboutApp: { ...state.AboutApp, programState } }));

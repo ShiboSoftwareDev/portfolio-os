@@ -46,7 +46,11 @@ const Process = ({
       handle=".frame"
       nodeRef={nodeRef}
     >
-      <div onMouseDownCapture={updateLastActive} ref={nodeRef} className={fullscreen + " " + hidden}>
+      <div
+        onMouseDownCapture={updateLastActive}
+        ref={nodeRef}
+        className={fullscreen + " " + hidden}
+      >
         <Resizable
           className={`border w-full h-full border-blue-600 z-50 bg-white`}
           size={{
