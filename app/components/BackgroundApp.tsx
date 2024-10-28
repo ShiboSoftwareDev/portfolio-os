@@ -17,11 +17,10 @@ const BackgroundApp = ({
     (state) => state[applicationName].applicationState,
   );
   const changeApplicationState = useChangeApplicationState(applicationName);
-  const hidden = applicationState === "minimized" ? "hidden" : "";
-  const open = applicationState === "open" ? true : false;
+  const open = applicationState !== "closed" ? true : false;
   return open ? (
     <div
-      className={`absolute h-screen w-full border ${hidden} border-blue-600 z-50 bg-white`}
+      className={`absolute h-screen w-full border border-blue-600 z-10 bg-white`}
     >
       <h2
         className="absolute px-1 right-0 top-0 text-2xl text-red-500"

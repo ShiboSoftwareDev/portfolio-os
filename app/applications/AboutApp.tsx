@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 const AboutApp = () => {
+  const [text, setText] = useState("");
   const markdown = `# 🌐 Welcome to **Portfolio OS** 🌐
 
 **_Alpha Version_**
@@ -54,6 +55,12 @@ const AboutApp = () => {
           </Markdown>
         </div>
       </div>
+      <input
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        className="text-black border-blue-500 border"
+        placeholder="placeholder"
+      ></input>
 
       {/* Bottom Navigation (Optional) */}
       <div className="flex justify-around items-center w-full h-12 bg-slate-200 text-slate-600 text-xl"></div>
