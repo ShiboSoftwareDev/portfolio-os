@@ -7,6 +7,8 @@ export interface AboutAppInterface {
   AboutApp: {
     title: string;
     icon: React.ReactNode;
+    lastActive: number;
+    updateLastActive: () => void;
     programState: "closed" | "open" | "minimized";
     setProgramState: (programState: "closed" | "open" | "minimized") => void;
     setTitle: (title: string) => void;
@@ -30,6 +32,10 @@ export const createAboutAppSlice: StateCreator<
           color="black"
         />
       ),
+      lastActive: Date.now(),
+        updateLastActive: ()=>{
+        set((state) => ({AboutApp: {...state.AboutApp, lastActive:Date.now()}}))
+        },
       programState: "closed",
       setProgramState: (programState) => {
         set((state) => ({ AboutApp: { ...state.AboutApp, programState } }));

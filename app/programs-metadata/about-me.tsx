@@ -7,6 +7,8 @@ export interface AboutMeInterface {
   AboutMe: {
     title: string;
     icon: React.ReactNode;
+    lastActive: number;
+    updateLastActive: ()=>void;
     programState: "closed" | "open" | "minimized";
     setProgramState: (programState: "closed" | "open" | "minimized") => void;
     setTitle: (title: string) => void;
@@ -25,6 +27,10 @@ export const createAboutMeSlice: StateCreator<
     AboutMe: {
       title: title,
       icon: <CgProfile className="h-[80%] w-[80%]" color="black" />,
+      lastActive: Date.now(),
+        updateLastActive: ()=>{
+        set((state) => ({AboutMe: {...state.AboutMe, lastActive:Date.now()}}))
+        },
       programState: "closed",
       setProgramState: (programState) => {
         set((state) => ({ AboutMe: { ...state.AboutMe, programState } }));

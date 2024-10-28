@@ -13,8 +13,12 @@ const TaskbarIcon = ({
   const programState = useProgramStore(
     (state) => state[programName].programState,
   );
+  const updateLastActive = useProgramStore(
+    (state) => state[programName].updateLastActive,
+  );
   const icon = useProgramStore((state) => state[programName].icon);
   const handleClick = () => {
+   updateLastActive() 
     changeProgramState(programState !== "open" ? "open" : "minimized");
   };
   const borderColor =

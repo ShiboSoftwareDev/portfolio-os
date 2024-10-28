@@ -19,6 +19,9 @@ const Process = ({
   const programState = useProgramStore(
     (state) => state[programName].programState,
   );
+  const updateLastActive = useProgramStore(
+    (state) => state[programName].updateLastActive,
+  );
   const [previousX, setPreviousX] = useState(0);
   const [previousY, setPreviousY] = useState(0);
   const changeProgramState = useChangeProgramState(programName);
@@ -43,7 +46,7 @@ const Process = ({
       handle=".frame"
       nodeRef={nodeRef}
     >
-      <div ref={nodeRef} className={fullscreen + " " + hidden}>
+      <div onMouseDownCapture={updateLastActive} ref={nodeRef} className={fullscreen + " " + hidden}>
         <Resizable
           className={`border w-full h-full border-blue-600 z-50 bg-white`}
           size={{
