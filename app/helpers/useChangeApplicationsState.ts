@@ -18,7 +18,13 @@ export function useChangeApplicationsState() {
       if (application) applications[application].setApplicationState(newState);
       else
         AVAILABLE_APPLICATIONS.map((application) => {
-          applications[application].setApplicationState(newState);
+          if (
+            !(
+              newState === "minimized" &&
+              applications[application].applicationState === "closed"
+            )
+          )
+            applications[application].setApplicationState(newState);
         });
     },
     [applications],
