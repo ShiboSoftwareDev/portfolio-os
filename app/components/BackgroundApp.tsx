@@ -3,7 +3,6 @@
 import React from "react";
 import type { AVAILABLE_PROGRAM_NAMES } from "../programs-metadata/available-programs";
 import { useApplicationStore } from "../applications-metadata/application-store";
-import { useChangeApplicationState } from "../helpers/useChangeApplicationState";
 
 const BackgroundApp = ({
   children,
