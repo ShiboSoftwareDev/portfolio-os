@@ -3,9 +3,9 @@
 import type React from "react";
 import useApplicationManager from "../helpers/useApplicationManager";
 import { useChangeApplicationsState } from "../helpers/useChangeApplicationsState";
-import { TouchEvent, useState } from "react";
-import BackgroundAppsView from "./BackgroundAppsView";
+import { TouchEvent, useEffect, useState } from "react";
 import Clock from "./Clock";
+import BackgroundAppWindow from "./BackgroundAppWindow";
 
 const MobileScreen = () => {
   const applications = useApplicationManager();
@@ -24,33 +24,42 @@ const MobileScreen = () => {
       setBackgroundView(true);
     }
   };
+  useEffect(() => {
+    if (applications.every((app) => !app?.application === true))
+      setBackgroundView(false);
+  }, [applications]);
 
   return (
     <section className="absolute w-full h-full top-0 left-0 overflow-y-scroll">
       <header className="fixed z-50 top-0 w-full flex justify-center items-center">
         <Clock localeProp="en-US" format="hh-mm" hour12Prop />
       </header>
-      {!backgroundView ? (
-        applications.map((application) =>
+
+      <div
+        className={
+          backgroundView
+            ? "absolute h-full flex flex-row items-center px-[10vw] gap-[5vw]"
+            : `absolute w-full h-full`
+        }
+      >
+        {applications.map((application) =>
           application ? (
             <div
-              className={`${application.state === "minimized" ? "hidden" : ""}`}
+              className={`${backgroundView ? "relative h-[80vh] w-[80vw]" : ""} ${application.state === "minimized" && !backgroundView ? "hidden" : ""}`}
               key={application.title}
-              onClick={() => {
-                if (application.state === "minimized")
-                  changeApplicationState(application.title, "open");
-              }}
             >
+              {backgroundView ? (
+                <BackgroundAppWindow
+                  title={application.title}
+                  setBackgroundView={setBackgroundView}
+                />
+              ) : null}
               {application.application}
             </div>
           ) : null,
-        )
-      ) : (
-        <BackgroundAppsView
-          applications={applications}
-          setBackgroundView={setBackgroundView}
-        />
-      )}
+        )}
+      </div>
+
       <nav className="fixed z-50 h-[4%] bottom-0 w-full flex justify-center items-center">
         <div
           className="h-[50%] w-[30%] border border-blue-600 bg-blue-500 rounded-full"

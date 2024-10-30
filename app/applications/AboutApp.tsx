@@ -54,13 +54,19 @@ const AboutApp = () => {
             {markdown}
           </Markdown>
         </div>
+        <div className="w-full flex flex-row">
+          <label htmlFor="message" className="text-black mr-2">
+            Leave a message:{" "}
+          </label>
+          <input
+            id="message"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            className="text-black border-blue-500 border"
+            placeholder="placeholder"
+          ></input>
+        </div>
       </div>
-      <input
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        className="text-black border-blue-500 border"
-        placeholder="placeholder"
-      ></input>
 
       {/* Bottom Navigation (Optional) */}
       <div className="flex justify-around items-center w-full h-12 bg-slate-200 text-slate-600 text-xl"></div>

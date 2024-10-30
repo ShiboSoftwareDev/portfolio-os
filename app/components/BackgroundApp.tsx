@@ -18,11 +18,7 @@ const BackgroundApp = ({
   );
   const open = applicationState !== "closed" ? true : false;
   return open ? (
-    <div
-      className={`absolute h-full w-full border border-blue-600 z-10 bg-white`}
-    >
-      {children}
-    </div>
+    <div className={`absolute h-full w-full z-10 bg-white`}>{children}</div>
   ) : null;
 };
 
