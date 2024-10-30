@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 import Draggable from "react-draggable";
+import { Rnd as Resizable } from "react-rnd";
 import { useProgramStore } from "../programs-metadata/program-store";
 import type { AVAILABLE_PROGRAM_NAMES } from "../programs-metadata/available-programs";
 import { useChangeProgramState } from "../helpers/useChangeProgramState";
-import { Resizable } from "re-resizable";
 
 const Process = ({
   children,
@@ -53,6 +53,7 @@ const Process = ({
       >
         <Resizable
           className={`border w-full h-full border-blue-600 z-50 bg-white`}
+          disableDragging
           size={{
             width: size !== "fullscreen" ? width : "100%",
             height: size !== "fullscreen" ? height : "100%",
