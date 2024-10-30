@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 const Clock = ({
   format,
@@ -9,11 +9,10 @@ const Clock = ({
   hour12Prop: boolean;
   localeProp: string;
 }) => {
-  let runner: any;
-  const getCurrentTime = () => {
-    const locale = localeProp ? localeProp : [];
+  const getCurrentTime = useCallback(() => {
+    const locale = localeProp ? localeProp : "";
     const hour12 = hour12Prop == false ? false : true;
-    let hour: string, minute: string, second: string;
+    let hour, minute, second;
     if (format) {
       switch (format.toLowerCase()) {
         case "hh":
@@ -28,12 +27,9 @@ const Clock = ({
           minute = "2-digit";
           second = "2-digit";
           break;
-        default:
-          hour = "2-digit";
-          minute = "2-digit";
-          second = "2-digit";
       }
     }
+    //@ts-expect-error: Overload error and we have enough options
     const result = new Date().toLocaleTimeString(locale, {
       hour12: hour12,
       hour: hour,
@@ -41,10 +37,10 @@ const Clock = ({
       second: second,
     });
     return result;
-  };
+  }, [format, hour12Prop, localeProp]);
   const [time, setTime] = useState(getCurrentTime());
   useEffect(() => {
-    runner = setInterval(() => {
+    const runner = setInterval(() => {
       setTime(getCurrentTime());
     }, 60000);
     return () => {
@@ -52,7 +48,7 @@ const Clock = ({
         clearInterval(runner);
       }
     };
-  }, []);
+  }, [getCurrentTime]);
 
   return (
     <div>
