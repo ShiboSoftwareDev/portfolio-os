@@ -1,9 +1,13 @@
-import React from "react";
+"use client";
 
-const Welcome = ({ platform }: { platform: "desktop" | "mobile" | "null" }) => {
+import React from "react";
+import { CircleLoader } from "react-spinners";
+
+const Welcome = ({ text }: { text?: string }) => {
   return (
-    <main className="absolute top-0 left-0 w-screen h-screen flex justify-center items-center bg-black">
-      <h1 className="text-5xl">Welcome {platform}</h1>
+    <main className="absolute top-0 left-0 w-screen h-screen flex flex-col gap-2 justify-center items-center bg-black">
+      <CircleLoader color="white" />
+      <h1 className="text-5xl">Welcome {text}</h1>
     </main>
   );
 };
