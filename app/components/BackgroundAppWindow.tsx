@@ -22,7 +22,6 @@ const BackgroundAppWindow = ({
     }
   };
   const navClicked = (title: AVAILABLE_APPLICATION_NAMES) => {
-    console.log(title);
     changeApplicationState(title, "open");
     setBackgroundView(false);
   };
