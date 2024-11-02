@@ -8,28 +8,28 @@ const desktopWallpapers: { [id: number]: React.ReactNode } = {};
 
 desktopWallpapers[1] = (
   <Image
-    className="h-full aspect-video"
+    className="h-full w-full"
     alt="desktop-background-image"
     src={backgroundImage1}
   />
 );
 desktopWallpapers[2] = (
   <Image
-    className="h-full aspect-video"
+    className="h-full w-full"
     alt="desktop-background-image"
     src={backgroundImage2}
   />
 );
 desktopWallpapers[3] = (
   <Image
-    className="h-full aspect-video"
+    className="h-full w-full"
     alt="desktop-background-image"
     src={backgroundImage3}
   />
 );
 desktopWallpapers[4] = (
   <Image
-    className="h-full aspect-video"
+    className="h-full w-full"
     alt="desktop-background-image"
     src={backgroundImage4}
   />
