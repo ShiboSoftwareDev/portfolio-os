@@ -1,20 +1,12 @@
-import Image from "next/image";
 import { create } from "zustand";
-import backgroundImage1 from "../assets/desktop-background-1.jpg";
 
 interface GlobalState {
-  background: React.ReactNode;
-  changeBackground: (newBackground: React.ReactNode) => void;
+  wallpaperId: number;
+  changeWallpaperId: (newWallpaperId: number) => void;
 }
 
 export const useGlobalStore = create<GlobalState>()((set) => ({
-  background: (
-    <Image
-      className="h-full w-full"
-      alt="desktop-background-image"
-      src={backgroundImage1}
-    />
-  ),
-  changeBackground: (newBackground) =>
-    set(() => ({ background: newBackground })),
+  wallpaperId: 0,
+  changeWallpaperId: (newWallpaperId) =>
+    set(() => ({ wallpaperId: newWallpaperId })),
 }));
