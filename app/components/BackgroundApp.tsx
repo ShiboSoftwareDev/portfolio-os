@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import type { AVAILABLE_PROGRAM_NAMES } from "../programs-metadata/available-programs";
 import { useApplicationStore } from "../applications-metadata/application-store";
+import { AVAILABLE_APPLICATION_NAMES } from "../applications-metadata/available-applications";
 
 const BackgroundApp = ({
   children,
@@ -11,7 +11,7 @@ const BackgroundApp = ({
   children: React.ReactNode;
   title: string;
 }) => {
-  const applicationName = title.replace(" ", "") as AVAILABLE_PROGRAM_NAMES;
+  const applicationName = title.replace(" ", "") as AVAILABLE_APPLICATION_NAMES;
   const applicationState = useApplicationStore(
     (state) => state[applicationName].applicationState,
   );
