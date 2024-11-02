@@ -35,7 +35,7 @@ const Process = ({
       onMouseDownCapture={updateLastActive}
       dragHandleClassName="frame"
       style={hidden}
-      className={`border border-blue-600 z-50 bg-white ${fullscreen}`}
+      className={`border border-blue-300 z-50 bg-white ${fullscreen}`}
       size={{
         width: size !== "fullscreen" ? width : "100%",
         height: size !== "fullscreen" ? height : "100%",
@@ -54,10 +54,10 @@ const Process = ({
         setHeight(height + delta.height);
       }}
     >
-      <div className="frame h-8 flex flex-row border-b border-blue-300 items-center justify-between text-black">
+      <div className="frame bg-blue-200 h-8 flex flex-row border-b border-blue-300 items-center justify-between text-black">
         <h1>{title}</h1>
         <div className="flex flex-row h-full">
-          <button className="h-full aspect-square border-l border-blue-300">
+          <button className="h-full aspect-square border-l border-blue-300 hover:bg-blue-300">
             <p
               className="h-full aspect-square flex items-center justify-center no-drag"
               onMouseDown={() => changeProgramState("minimized")}
@@ -65,7 +65,7 @@ const Process = ({
               -
             </p>
           </button>
-          <button className="h-full aspect-square border-l border-blue-300">
+          <button className="h-full aspect-square border-l border-blue-300 hover:bg-blue-300">
             <p
               className="h-full aspect-square flex items-center justify-center no-drag"
               onMouseDown={() => {
