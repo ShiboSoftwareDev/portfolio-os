@@ -35,7 +35,7 @@ const Process = ({
       onMouseDownCapture={updateLastActive}
       dragHandleClassName="frame"
       style={hidden}
-      className={`border border-blue-300 z-50 bg-white ${fullscreen}`}
+      className={`border border-blue-300 z-50 bg-white overflow-hidden ${fullscreen}`}
       size={{
         width: size !== "fullscreen" ? width : "100%",
         height: size !== "fullscreen" ? height : "100%",
