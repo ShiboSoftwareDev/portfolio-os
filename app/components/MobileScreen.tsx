@@ -36,16 +36,16 @@ const MobileScreen = () => {
       </header>
 
       <div
-        className={
+        className={`${
           backgroundView
             ? "absolute h-full flex flex-row items-center px-[10vw] gap-[5vw]"
             : `absolute w-full h-full`
-        }
+        } `}
       >
         {applications.map((application) =>
           application ? (
             <div
-              className={`${backgroundView ? "relative h-[80vh] w-[80vw]" : ""} ${application.state === "minimized" && !backgroundView ? "hidden" : ""}`}
+              className={`z-20 ${backgroundView ? "relative h-[80vh] w-[80vw] border border-black" : ""} ${application.state === "minimized" && !backgroundView ? "hidden" : ""}`}
               key={application.title}
             >
               {backgroundView ? (
@@ -60,9 +60,9 @@ const MobileScreen = () => {
         )}
       </div>
 
-      <nav className="fixed z-50 h-[4%] bottom-0 w-full flex justify-center items-center">
+      <nav className="fixed z-50 h-[5%] bottom-0 w-full flex justify-center items-center">
         <div
-          className="h-[50%] w-[30%] border border-blue-600 bg-blue-500 rounded-full"
+          className="h-[50%] w-[30%] border-2 border-blue-600 bg-blue-500 rounded-full"
           onClick={navClicked}
           onTouchEnd={navTouchEnd}
           onTouchStart={navTouchStart}

@@ -26,7 +26,7 @@ export const createAboutMeSlice: StateCreator<
   return {
     AboutMe: {
       title: title,
-      icon: <CgProfile className="h-[60%] w-[60%]" color="black" />,
+      icon: <CgProfile className="h-[70%] w-[70%]" color="black" />,
       applicationState: "closed",
       setApplicationState: (applicationState) => {
         set((state) => ({ AboutMe: { ...state.AboutMe, applicationState } }));

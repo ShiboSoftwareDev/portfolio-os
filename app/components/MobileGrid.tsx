@@ -11,7 +11,7 @@ const MobileGrid = () => {
       {grid.map((_, index) => (
         <div
           key={index}
-          className="rounded-3xl overflow-hidden w-[70%] aspect-square"
+          className="rounded-3xl overflow-hidden w-[60%] aspect-square"
         >
           {applications[index] ? <AppIcon title={applications[index]} /> : null}
         </div>

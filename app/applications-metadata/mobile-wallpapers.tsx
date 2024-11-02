@@ -28,7 +28,7 @@ export const createMobileWallpapersSlice: StateCreator<
   return {
     MobileWallpapers: {
       title: title,
-      icon: <LuWallpaper className="h-[60%] w-[60%]" color="black" />,
+      icon: <LuWallpaper className="h-[70%] w-[70%]" color="black" />,
       lastActive: Date.now(),
       updateLastActive: () => {
         set((state) => ({
