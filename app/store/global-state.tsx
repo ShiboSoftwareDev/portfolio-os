@@ -1,12 +1,14 @@
 import { create } from "zustand";
 
 interface GlobalState {
-  wallpaperId: number;
-  changeWallpaperId: (newWallpaperId: number) => void;
+  desktopWallpaperId: number;
+  changeDesktopWallpaperId: (newWallpaperId: number) => void;
 }
 
 export const useGlobalStore = create<GlobalState>()((set) => ({
-  wallpaperId: 0,
-  changeWallpaperId: (newWallpaperId) =>
-    set(() => ({ wallpaperId: newWallpaperId })),
+  desktopWallpaperId: 0,
+  changeDesktopWallpaperId: (newDesktopWallpaperId) => {
+    localStorage.setItem("Desktop Wallpaper", newDesktopWallpaperId.toString());
+    return set(() => ({ desktopWallpaperId: newDesktopWallpaperId }));
+  },
 }));

@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { useApplicationStore } from "../applications-metadata/application-store";
 import { AVAILABLE_APPLICATION_NAMES } from "../applications-metadata/available-applications";

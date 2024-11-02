@@ -1,10 +1,10 @@
 import type { StateCreator } from "zustand";
 import Process from "../components/Process";
-import Wallpapers from "../programs/Wallpapers";
+import DesktopWallpapers from "../programs/DesktopWallpapers";
 import { LuWallpaper } from "react-icons/lu";
 
-export interface WallpapersInterface {
-  Wallpapers: {
+export interface DesktopWallpapersInterface {
+  DesktopWallpapers: {
     title: string;
     icon: React.ReactNode;
     lastActive: number;
@@ -16,35 +16,42 @@ export interface WallpapersInterface {
   };
 }
 
-export const createWallpapersSlice: StateCreator<
-  WallpapersInterface,
+export const createDesktopWallpapersSlice: StateCreator<
+  DesktopWallpapersInterface,
   [],
   [],
-  WallpapersInterface
+  DesktopWallpapersInterface
 > = (set) => {
-  const title = "Wallpapers" as const;
+  const title = "Desktop Wallpapers" as const;
   return {
-    Wallpapers: {
+    DesktopWallpapers: {
       title: title,
       icon: <LuWallpaper className="h-[80%] w-[80%]" color="black" />,
       lastActive: Date.now(),
       updateLastActive: () => {
         set((state) => ({
-          Wallpapers: { ...state.Wallpapers, lastActive: Date.now() },
+          DesktopWallpapers: {
+            ...state.DesktopWallpapers,
+            lastActive: Date.now(),
+          },
         }));
       },
       programState: "closed",
       setProgramState: (programState) => {
-        set((state) => ({ Wallpapers: { ...state.Wallpapers, programState } }));
+        set((state) => ({
+          DesktopWallpapers: { ...state.DesktopWallpapers, programState },
+        }));
       },
       setTitle: (title: string) => {
-        set((state) => ({ Wallpapers: { ...state.Wallpapers, title } }));
+        set((state) => ({
+          DesktopWallpapers: { ...state.DesktopWallpapers, title },
+        }));
       },
 
       process: () => {
         return (
           <Process key={title} title={title}>
-            <Wallpapers />
+            <DesktopWallpapers />
           </Process>
         );
       },

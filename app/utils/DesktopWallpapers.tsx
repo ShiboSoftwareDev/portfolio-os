@@ -4,30 +4,30 @@ import backgroundImage2 from "../assets/desktop-background-2.jpg";
 import backgroundImage3 from "../assets/desktop-background-3.jpg";
 import backgroundImage4 from "../assets/desktop-background-4.jpg";
 
-const wallpapers: { [id: number]: React.ReactNode } = {};
+const desktopWallpapers: { [id: number]: React.ReactNode } = {};
 
-wallpapers[0] = (
+desktopWallpapers[1] = (
   <Image
     className="h-full aspect-video"
     alt="desktop-background-image"
     src={backgroundImage1}
   />
 );
-wallpapers[1] = (
+desktopWallpapers[2] = (
   <Image
     className="h-full aspect-video"
     alt="desktop-background-image"
     src={backgroundImage2}
   />
 );
-wallpapers[2] = (
+desktopWallpapers[3] = (
   <Image
     className="h-full aspect-video"
     alt="desktop-background-image"
     src={backgroundImage3}
   />
 );
-wallpapers[3] = (
+desktopWallpapers[4] = (
   <Image
     className="h-full aspect-video"
     alt="desktop-background-image"
@@ -35,4 +35,4 @@ wallpapers[3] = (
   />
 );
 
-export default wallpapers;
+export default desktopWallpapers;

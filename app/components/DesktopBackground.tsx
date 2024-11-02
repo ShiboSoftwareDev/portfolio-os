@@ -1,23 +1,31 @@
 "use client";
 
-import Image from "next/image";
-import React from "react";
-import backgroundImage4 from "../assets/desktop-background-4.jpg";
+import React, { useEffect } from "react";
 import { useGlobalStore } from "../store/global-state";
-import wallpapers from "../utils/Wallpapers";
+import desktopWallpapers from "../utils/DesktopWallpapers";
+import { CircleLoader } from "react-spinners";
 
 const DesktopBackground = () => {
-  const wallpaperId = useGlobalStore((state) => state.wallpaperId);
+  const desktopWallpaperId = useGlobalStore(
+    (state) => state.desktopWallpaperId,
+  );
+  const changeDesktopWallpaperId = useGlobalStore(
+    (state) => state.changeDesktopWallpaperId,
+  );
+  useEffect(() => {
+    const savedDesktopWallpaper = parseInt(
+      localStorage.getItem("Desktop Wallpaper") || "",
+    );
+    changeDesktopWallpaperId(savedDesktopWallpaper || 1);
+  }, []);
   return (
     <section className="absolute -z-50 top-0 left-0 w-full h-full">
-      {typeof wallpaperId === "number" ? (
-        wallpapers[wallpaperId]
+      {desktopWallpaperId ? (
+        desktopWallpapers[desktopWallpaperId]
       ) : (
-        <Image
-          className="h-full w-full"
-          alt="desktop-background-image"
-          src={backgroundImage4}
-        />
+        <div className="h-full w-full flex items-center justify-center">
+          <CircleLoader color="white" />
+        </div>
       )}
     </section>
   );
