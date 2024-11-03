@@ -24,8 +24,8 @@ const MyWork = () => {
           Project Overview:
         </h3>
         <p className="text-gray-600 mt-1">
-          TSCircuit is an open-source project that I've been contributing to for
-          over two months now. The goal of TSCircuit is to simplify circuit
+          TSCircuit is an open-source project that I{"'"}ve been contributing to
+          for over two months now. The goal of TSCircuit is to simplify circuit
           design and simulation, providing an accessible and powerful tool for
           both beginners and advanced users in electronics and engineering. My
           work includes optimizing code, enhancing features, and collaborating
@@ -70,7 +70,7 @@ const MyWork = () => {
         </ul>
 
         <p className="mt-4 text-blue-600">
-          <a href="#" target="_blank" className="underline">
+          <a href="./" rel="noreferrer" target="_blank" className="underline">
             Learn More & Contribute: TSCircuit GitHub repository
           </a>
         </p>
