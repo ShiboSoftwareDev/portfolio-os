@@ -19,7 +19,7 @@ const DesktopBackground = () => {
     changeDesktopWallpaperId(savedDesktopWallpaper || 1);
   }, []);
   return (
-    <section className="absolute -z-50 top-0 left-0 w-full h-full">
+    <section className="absolute -z-50 top-0 left-0 w-full h-full bg-black">
       {desktopWallpaperId ? (
         desktopWallpapers[desktopWallpaperId]
       ) : (

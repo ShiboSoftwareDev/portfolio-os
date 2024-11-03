@@ -5,11 +5,16 @@ import {
   createDesktopWallpapersSlice,
   DesktopWallpapersInterface,
 } from "./desktop-wallpapers";
+import { createMyWorkSlice, MyWorkInterface } from "./my-work";
 
 export const useProgramStore = create<
-  AboutMeInterface & AboutAppInterface & DesktopWallpapersInterface
+  AboutMeInterface &
+    AboutAppInterface &
+    DesktopWallpapersInterface &
+    MyWorkInterface
 >()((...a) => ({
   ...createAboutMeSlice(...a),
   ...createAboutAppSlice(...a),
   ...createDesktopWallpapersSlice(...a),
+  ...createMyWorkSlice(...a),
 }));

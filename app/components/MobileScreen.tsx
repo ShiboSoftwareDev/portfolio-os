@@ -22,6 +22,7 @@ const MobileScreen = () => {
   const navTouchEnd = (e: TouchEvent) => {
     if (touchStartPosition > e.changedTouches[0].clientY + 20) {
       setBackgroundView(true);
+      changeApplicationState("", "minimized");
     }
   };
   useEffect(() => {
@@ -38,7 +39,7 @@ const MobileScreen = () => {
       <div
         className={`${
           backgroundView
-            ? "absolute h-full flex flex-row items-center px-[10vw] gap-[5vw]"
+            ? "absolute h-full flex flex-row items-center px-[10vw] gap-[5vw] z-20"
             : `absolute w-full h-full`
         } `}
       >
