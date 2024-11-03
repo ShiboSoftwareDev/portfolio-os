@@ -24,7 +24,7 @@ const MyWork = () => {
           Project Overview:
         </h3>
         <p className="text-gray-600 mt-1">
-          TSCircuit is an open-source project that I{"'"}ve been contributing to
+          TSCircuit is an open-source project that Ive been contributing to
           for over two months now. The goal of TSCircuit is to simplify circuit
           design and simulation, providing an accessible and powerful tool for
           both beginners and advanced users in electronics and engineering. My
