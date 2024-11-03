@@ -34,11 +34,11 @@ const AboutApp = () => {
 ---`;
 
   return (
-    <>
+    <div className="w-full h-full overflow-y-scroll">
       <Markdown className="text-slate-600" remarkPlugins={[remarkGfm]}>
         {markdown}
       </Markdown>
-    </>
+    </div>
   );
 };
 
