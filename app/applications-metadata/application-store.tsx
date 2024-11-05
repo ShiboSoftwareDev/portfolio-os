@@ -5,11 +5,16 @@ import {
   createMobileWallpapersSlice,
   MobileWallpapersInterface,
 } from "./mobile-wallpapers";
+import { createMyWorkSlice, MyWorkInterface } from "./my-work";
 
 export const useApplicationStore = create<
-  AboutMeInterface & AboutAppInterface & MobileWallpapersInterface
+  AboutMeInterface &
+    AboutAppInterface &
+    MobileWallpapersInterface &
+    MyWorkInterface
 >()((...a) => ({
   ...createAboutMeSlice(...a),
   ...createAboutAppSlice(...a),
   ...createMobileWallpapersSlice(...a),
+  ...createMyWorkSlice(...a),
 }));

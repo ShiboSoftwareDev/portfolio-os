@@ -2,6 +2,7 @@ export const AVAILABLE_APPLICATIONS = [
   "AboutMe",
   "AboutApp",
   "MobileWallpapers",
+  "MyWork",
 ] as const;
 
 export type AVAILABLE_APPLICATION_NAMES =
