@@ -26,7 +26,7 @@ export const createMyWorkSlice: StateCreator<
   return {
     MyWork: {
       title: title,
-      icon: <MdWorkspacePremium className="h-[80%] w-[80%]" color="black" />,
+      icon: <MdWorkspacePremium className="h-[60%] w-[60%]" color="black" />,
       lastActive: Date.now(),
       applicationState: "closed",
       setApplicationState: (applicationState) => {

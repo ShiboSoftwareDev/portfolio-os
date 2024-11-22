@@ -28,7 +28,7 @@ export const createAboutAppSlice: StateCreator<
       title: title,
       icon: (
         <IoMdInformationCircleOutline
-          className="h-[70%] w-[70%]"
+          className="h-[60%] w-[60%]"
           color="black"
         />
       ),
