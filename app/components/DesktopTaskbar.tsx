@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import TaskbarIcon from "./TaskbarIcon";
 import { AVAILABLE_PROGRAMS } from "../programs-metadata/available-programs";
+import Clock from "./Clock";
 
 const DesktopTaskbar = () => {
   // todo taskbar to open and close programs
@@ -9,6 +12,9 @@ const DesktopTaskbar = () => {
       {AVAILABLE_PROGRAMS.map((programName) => (
         <TaskbarIcon key={programName} programName={programName} />
       ))}
+      <div className="right-[1%] absolute">
+        <Clock localeProp="en-US" format="hh-mm" hour12Prop />
+      </div>
     </nav>
   );
 };
