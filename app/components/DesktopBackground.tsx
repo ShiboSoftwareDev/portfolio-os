@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { useGlobalStore } from "../store/global-state";
 import desktopWallpapers from "../utils/DesktopWallpapers";
 import { CircleLoader } from "react-spinners";
+import "react-toastify/dist/ReactToastify.css";
 
 const DesktopBackground = () => {
   const desktopWallpaperId = useGlobalStore(
