@@ -63,7 +63,7 @@ const MobileScreen = () => {
 
       <nav className="fixed z-50 h-[5%] bottom-0 w-full flex justify-center items-center">
         <div
-          className="h-[30%] w-[30%] hover:animate-bounce border border-blue-600 bg-blue-500 rounded-full"
+          className="h-[30%] w-[30%] hover:animate-bounce-once border border-blue-600 bg-blue-500 rounded-full"
           onClick={navClicked}
           onTouchEnd={navTouchEnd}
           onTouchStart={navTouchStart}
