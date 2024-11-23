@@ -40,6 +40,7 @@ const MobileScreen = () => {
       </header>
 
       <div
+        onClick={() => setBackgroundView(false)}
         className={`${
           backgroundView
             ? "absolute h-full min-w-full flex items-center justify-center pt-16 px-4 gap-4 z-20 bg-black/20 backdrop-blur-sm overflow-y-scroll"

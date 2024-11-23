@@ -1,97 +1,92 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import { ProjectCard } from "../components/ProjectCard";
+import { SkillBar } from "../components/SkillBar";
+import { projects, skillCategories } from "../data/portfolio-data";
 
 const MyWork = () => {
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const backgroundCircles = useMemo(
+    () =>
+      Array.from({ length: 20 }, (_, i) => ({
+        id: i,
+        width: Math.random() * 100 + 20,
+        height: Math.random() * 100 + 20,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        animationDelay: Math.random() * 5,
+        animationDuration: Math.random() * 10 + 10,
+      })),
+    [],
+  );
+
   return (
-    <div className="overflow-scroll h-full w-full">
-      <div className="mx-auto max-w-3xl px-4 py-8 ">
-        <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
-          My Software Projects
-        </h1>
-        <p className="text-gray-600 text-center mb-8">
-          Welcome to my portfolio of software projects! Currently, I’m focused
-          on contributing to TSCircuit, an open-source project, with plans to
-          add more projects as I grow my skills and experience.
-        </p>
+    <div className="h-full w-full bg-gradient-to-br from-blue-950 via-cyan-900 to-slate-900 overflow-y-auto">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        {backgroundCircles.map((circle) => (
+          <div
+            key={circle.id}
+            className="absolute rounded-full bg-cyan-500/5 animate-float"
+            style={{
+              width: `${circle.width}px`,
+              height: `${circle.height}px`,
+              left: `${circle.left}%`,
+              top: `${circle.top}%`,
+              animationDelay: `${circle.animationDelay}s`,
+              animationDuration: `${circle.animationDuration}s`,
+              containIntrinsicSize: "auto",
+              contain: "strict",
+            }}
+          />
+        ))}
+      </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
-            🛠️ TSCircuit
-          </h2>
-          <p className="text-gray-600">
-            <strong>Status:</strong> Actively Developing
+      <div className="relative z-10 px-4 py-8">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-12"
+        >
+          <div className="relative inline-block">
+            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-2">
+              Work Experience
+            </h1>
+            <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" />
+          </div>
+          <p className="text-cyan-100 mt-4">
+            Transforming ideas into digital reality
           </p>
+        </motion.div>
 
-          <h3 className="text-lg font-semibold text-gray-700 mt-4">
-            Project Overview:
-          </h3>
-          <p className="text-gray-600 mt-1">
-            TSCircuit is an open-source project that Ive been contributing to
-            for over two months now. The goal of TSCircuit is to simplify
-            circuit design and simulation, providing an accessible and powerful
-            tool for both beginners and advanced users in electronics and
-            engineering. My work includes optimizing code, enhancing features,
-            and collaborating with the community to ensure a smooth user
-            experience.
-          </p>
-
-          <h3 className="text-lg font-semibold text-gray-700 mt-4">
-            Tech Stack:
-          </h3>
-          <ul className="list-disc list-inside text-gray-600 mt-1">
-            <li>
-              <strong>Programming Languages:</strong> TypeScript, JavaScript
-            </li>
-            <li>
-              <strong>Frameworks & Libraries:</strong> Node.js, React (if
-              applicable)
-            </li>
-            <li>
-              <strong>Other Tools:</strong> Git, GitHub, VS Code
-            </li>
-          </ul>
-
-          <h3 className="text-lg font-semibold text-gray-700 mt-4">
-            Key Contributions So Far:
-          </h3>
-          <ul className="list-disc list-inside text-gray-600 mt-1">
-            <li>Improved performance of core functionalities</li>
-            <li>Developed new features for more intuitive circuit design</li>
-            <li>
-              Collaborated with other contributors to resolve issues and review
-              code
-            </li>
-          </ul>
-
-          <h3 className="text-lg font-semibold text-gray-700 mt-4">
-            Next Steps:
-          </h3>
-          <ul className="list-disc list-inside text-gray-600 mt-1">
-            <li>Implement additional design tools</li>
-            <li>Refine the user interface for better usability</li>
-            <li>Expand documentation to support a wider audience</li>
-          </ul>
-
-          <p className="mt-4 text-blue-600">
-            <a
-              href="https://github.com/tscircuit"
-              rel="noreferrer"
-              target="_blank"
-              className="underline"
-            >
-              Learn More & Contribute: TSCircuit GitHub repository
-            </a>
-          </p>
+        <div className="grid grid-cols-1 gap-6 mb-12">
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              isSelected={selectedProject === project.id}
+              onSelect={() =>
+                setSelectedProject(
+                  selectedProject === project.id ? null : project.id,
+                )
+              }
+            />
+          ))}
         </div>
 
-        <div className="bg-gray-50 p-6 rounded-lg shadow">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
-            Future Projects
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="mb-12 p-6 rounded-2xl bg-gradient-to-br from-blue-900/50 to-cyan-900/30 backdrop-blur-lg border border-cyan-500/20"
+        >
+          <h2 className="text-2xl font-bold text-cyan-50 mb-6">
+            Skills & Expertise
           </h2>
-          <p className="text-gray-600">
-            Stay tuned! More projects are coming as I continue my journey in
-            software development.
-          </p>
-        </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {skillCategories.map((category) => (
+              <SkillBar key={category.name} category={category} />
+            ))}
+          </div>
+        </motion.div>
       </div>
     </div>
   );

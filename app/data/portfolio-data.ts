@@ -102,7 +102,6 @@ export const skillCategories: SkillCategory[] = [
   },
 ];
 
-// Optional: Add social links
 export const socialLinks = {
   github: "https://github.com/yourusername",
   linkedin: "https://linkedin.com/in/yourusername",
@@ -110,7 +109,6 @@ export const socialLinks = {
   portfolio: "https://yourportfolio.com",
 };
 
-// Optional: Add contact information
 export const contactInfo = {
   email: "your.email@example.com",
   location: "City, Country",
