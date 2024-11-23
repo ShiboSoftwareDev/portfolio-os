@@ -12,6 +12,9 @@ const MobileScreen = () => {
   const changeApplicationState = useChangeApplicationsState();
   const [touchStartPosition, setTouchStartPostion] = useState(0);
   const [backgroundView, setBackgroundView] = useState(false);
+  const [touchedApps, setTouchedApps] = useState<{ [key: string]: boolean }>(
+    {},
+  );
   const navClicked = () => {
     setBackgroundView(false);
     changeApplicationState("", "minimized");
@@ -39,20 +42,34 @@ const MobileScreen = () => {
       <div
         className={`${
           backgroundView
-            ? "absolute h-full flex flex-row items-center px-[10vw] gap-[5vw] z-20"
+            ? "absolute h-full min-w-full flex items-center justify-center pt-16 px-4 gap-4 z-20 bg-black/20 backdrop-blur-sm overflow-y-scroll"
             : `absolute w-full h-full`
         } `}
       >
         {applications.map((application) =>
           application ? (
             <div
-              className={`z-20 ${backgroundView ? "relative h-[80vh] w-[80vw] border border-black" : ""} ${application.state === "minimized" && !backgroundView ? "hidden" : ""}`}
+              className={`z-20 ${
+                backgroundView
+                  ? "relative h-[70vh] w-[70vw] rounded-2xl overflow-hidden shadow-lg transition-transform"
+                  : ""
+              } ${
+                application.state === "minimized" && !backgroundView
+                  ? "hidden"
+                  : ""
+              } ${touchedApps[application.title] ? "scale-95" : ""}`}
               key={application.title}
             >
               {backgroundView ? (
                 <BackgroundAppWindow
                   title={application.title}
                   setBackgroundView={setBackgroundView}
+                  setTouchedApp={(state) =>
+                    setTouchedApps((prev) => ({
+                      ...prev,
+                      [application.title]: state,
+                    }))
+                  }
                 />
               ) : null}
               {application.application}
@@ -60,10 +77,9 @@ const MobileScreen = () => {
           ) : null,
         )}
       </div>
-
-      <nav className="fixed z-50 h-[5%] bottom-0 w-full flex justify-center items-center">
+      <nav className="fixed z-50 bottom-0 w-full h-8 flex justify-center items-center">
         <div
-          className="h-[30%] w-[30%] hover:animate-bounce-once border border-blue-600 bg-blue-500 rounded-full"
+          className="w-[64px] h-[5px] rounded-full bg-white/60 active:bg-white/80 transition-colors ring-1 ring-black/20"
           onClick={navClicked}
           onTouchEnd={navTouchEnd}
           onTouchStart={navTouchStart}

@@ -52,7 +52,13 @@ const Clock = ({
 
   return (
     <div>
-      <span className="shadow-black [text-shadow:_#000_0px_0px_2px;] text-white">
+      <span
+        className="text-white font-medium"
+        style={{
+          textShadow:
+            "-0.5px -0.5px 0 rgba(0,0,0,0.5), 0.5px -0.5px 0 rgba(0,0,0,0.5), -0.5px 0.5px 0 rgba(0,0,0,0.5), 0.5px 0.5px 0 rgba(0,0,0,0.5)",
+        }}
+      >
         {time}
       </span>
     </div>
