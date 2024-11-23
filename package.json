@@ -10,6 +10,7 @@
     "format": "prettier . --write"
   },
   "dependencies": {
+    "framer-motion": "^11.11.17",
     "next": "14.2.13",
     "re-resizable": "^6.10.0",
     "react": "^18",

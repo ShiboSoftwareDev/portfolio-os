@@ -25,3 +25,43 @@ body {
     text-wrap: balance;
   }
 }
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float linear infinite;
+}
+
+.perspective-card {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.perspective-card:hover {
+  transform: rotateX(5deg) rotateY(5deg);
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient-shift 15s ease infinite;
+  background-size: 200% 200%;
+}
