@@ -2,9 +2,19 @@ import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { SiLeetcode } from "react-icons/si";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { GiArtificialIntelligence } from "react-icons/gi";
 
 const AboutMe = () => {
-  const markdown = `# Hey there! I'm **Shibo** 🚀`;
+  const markdown = `I'm **Shibo**, a software developer with a strong background in **TypeScript** and **AI-driven applications**.  
+
+I contributed to **TSCircuit**, an AI-powered **React framework for electronics**, where I worked on **benchmarking AI prompts** and optimizing workflows.  
+
+Now, I'm diving into **Rust** to expand my expertise into **embedded systems**, with the goal of integrating **AI into robotics and low-level hardware**.  
+
+Passionate about the intersection of **AI, hardware, and automation**, I'm always exploring innovative ways to bridge **software intelligence** with real-world applications.`;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -75,7 +85,9 @@ const AboutMe = () => {
           <div className="relative inline-block">
             <div className="w-32 h-32 rounded-full bg-gradient-to-br from-teal-400 to-emerald-500 p-1">
               <div className="w-full h-full rounded-full bg-teal-950 flex items-center justify-center">
-                <span className="text-4xl">👨‍💻</span>
+                <span className="text-4xl">
+                  <GiArtificialIntelligence />
+                </span>
               </div>
             </div>
             <motion.div
@@ -107,39 +119,65 @@ const AboutMe = () => {
             variants={itemVariants}
             className="grid grid-cols-2 gap-4"
           >
-            {[
-              { icon: "🌐", label: "Portfolio" },
-              { icon: "📫", label: "Contact" },
-              { icon: "📝", label: "Blog" },
-              { icon: "🤝", label: "Connect" },
-            ].map((item) => (
-              <motion.button
-                key={item.label}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="p-4 rounded-xl bg-gradient-to-br from-teal-900/50 to-emerald-900/30 backdrop-blur-md border border-teal-500/20                                                                                                        
-                           flex items-center justify-center gap-2 text-teal-50 hover:text-teal-200 transition-colors"
-              >
-                <span className="text-2xl">{item.icon}</span>
-                <span>{item.label}</span>
-              </motion.button>
-            ))}
-          </motion.div>
+            <motion.a
+              href="https://github.com/shibosoftwaredev"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-4 rounded-xl bg-gradient-to-br from-teal-900/50 to-emerald-900/30 backdrop-blur-md border border-teal-500/20  
+             flex items-center justify-center gap-2 text-teal-50 hover:text-teal-200 transition-colors"
+            >
+              <span className="text-2xl">
+                <FaGithub />
+              </span>
+              <span>GitHub</span>
+            </motion.a>
 
-          <motion.div
-            variants={itemVariants}
-            className="flex justify-center gap-4"
-          >
-            {["GitHub", "LinkedIn", "Twitter"].map((platform) => (
-              <motion.a
-                key={platform}
-                whileHover={{ y: -3 }}
-                href="#"
-                className="px-4 py-2 rounded-full bg-teal-500/10 text-teal-100 hover:bg-teal-500/20 transition-colors"
-              >
-                {platform}
-              </motion.a>
-            ))}
+            <motion.a
+              href="https://www.linkedin.com/in/ahmed-alshaybani-b75a45328/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-4 rounded-xl bg-gradient-to-br from-teal-900/50 to-emerald-900/30 backdrop-blur-md border border-teal-500/20  
+             flex items-center justify-center gap-2 text-teal-50 hover:text-teal-200 transition-colors"
+            >
+              <span className="text-2xl">
+                <FaLinkedin />
+              </span>
+              <span>LinkedIn</span>
+            </motion.a>
+
+            <motion.a
+              href="https://x.com/shibo_dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-4 rounded-xl bg-gradient-to-br from-teal-900/50 to-emerald-900/30 backdrop-blur-md border border-teal-500/20  
+             flex items-center justify-center gap-2 text-teal-50 hover:text-teal-200 transition-colors"
+            >
+              <span className="text-2xl">
+                <FaXTwitter />
+              </span>
+              <span>Twitter</span>
+            </motion.a>
+
+            <motion.a
+              href="https://leetcode.com/u/Shibo-0001/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-4 rounded-xl bg-gradient-to-br from-teal-900/50 to-emerald-900/30 backdrop-blur-md border border-teal-500/20  
+             flex items-center justify-center gap-2 text-teal-50 hover:text-teal-200 transition-colors"
+            >
+              <span className="text-2xl">
+                <SiLeetcode />
+              </span>
+              <span>Leetcode</span>
+            </motion.a>
           </motion.div>
         </div>
       </motion.div>
