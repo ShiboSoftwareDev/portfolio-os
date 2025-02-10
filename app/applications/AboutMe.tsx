@@ -45,7 +45,7 @@ Passionate about the intersection of **AI, hardware, and automation**, I'm alway
   );
 
   return (
-    <div className="h-full w-full bg-gradient-to-br from-emerald-950 via-teal-900 to-cyan-900 overflow-y-auto">
+    <div className="h-full w-full bg-gradient-to-br from-emerald-950 via-teal-900 to-cyan-900 overflow-y-auto pb-10">
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute w-full h-full opacity-10">
           {emeraldPatterns.map((pattern) => (

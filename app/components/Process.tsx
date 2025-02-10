@@ -6,6 +6,8 @@ import { useProgramStore } from "../programs-metadata/program-store";
 import type { AVAILABLE_PROGRAM_NAMES } from "../programs-metadata/available-programs";
 import { useChangeProgramState } from "../helpers/useChangeProgramState";
 
+const globalOffset = { x: 300, y: 50 };
+
 const Process = ({
   children,
   title,
@@ -22,12 +24,22 @@ const Process = ({
   );
   const changeProgramState = useChangeProgramState(programName);
   const hidden = programState === "minimized" ? { display: "none" } : {};
-  const [size, setSize] = useState("fullscreen");
-  const [width, setWidth] = useState(500);
-  const [height, setHeight] = useState(500);
-  const [positionY, setPositionY] = useState(0);
+  const [size, setSize] = useState("");
+  const [width, setWidth] = useState(600);
+  const [height, setHeight] = useState(700);
+  const [positionY, setPositionY] = useState(() => {
+    const current = globalOffset.y;
+    if (globalOffset.y > 150) globalOffset.y = 0;
+    else globalOffset.y += 20;
+    return current;
+  });
   const [prevPositionY, setPrevPositionY] = useState(0);
-  const [positionX, setPositionX] = useState(0);
+  const [positionX, setPositionX] = useState(() => {
+    const current = globalOffset.x;
+    if (globalOffset.x > 400) globalOffset.x = 0;
+    else globalOffset.x += 20;
+    return current;
+  });
   const [prevPositionX, setPrevPositionX] = useState(0);
   const fullscreen = size === "fullscreen" ? "h-full w-full" : "";
   return (
