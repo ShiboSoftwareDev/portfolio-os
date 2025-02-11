@@ -1,17 +1,55 @@
 import React, { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import * as emailjs from "@emailjs/browser";
 
 const AboutApp = () => {
   const [activeTab, setActiveTab] = useState("features");
-  const markdown = `# 🌐 Welcome to **Portfolio OS** 🌐`;
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
+  const [feedbackMessage, setFeedbackMessage] = useState("");
+  const [feedbackMessageColor, setFeedbackMessageColor] = useState("");
+
+  const sendFeedbackMessage = (message: string, tailwindColor: string) => {
+    if (feedbackMessage !== "") return;
+    setFeedbackMessage(message);
+    setFeedbackMessageColor(tailwindColor);
+    setTimeout(() => {
+      setFeedbackMessage("");
+    }, 2000);
+  };
 
   const tabs = [
     { id: "features", label: "Features", icon: "✨" },
     { id: "about", label: "About", icon: "ℹ️" },
     { id: "feedback", label: "Feedback", icon: "📝" },
   ];
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (name === "" || message === "") {
+      sendFeedbackMessage("Name/Message required", "text-red-500");
+      return;
+    }
+
+    emailjs
+      .sendForm(
+        "service_wc32lg8",
+        "template_kbr28fv",
+        e.currentTarget,
+        "Nsrya66EtqOX-xY7l",
+      )
+      .then(
+        () => {
+          sendFeedbackMessage("✅", "text-green-500");
+          setEmail("");
+          setName("");
+          setMessage("");
+        },
+        () => {
+          sendFeedbackMessage("Err", "text-red-500");
+        },
+      );
+  };
 
   const geometricShapes = useMemo(
     () =>
@@ -30,7 +68,7 @@ const AboutApp = () => {
   );
 
   return (
-    <div className="h-full w-full bg-[#0A192F] overflow-hidden">
+    <div className="h-full w-full bg-[#0A192F] overflow-hidden pb-10">
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         {geometricShapes.map((shape) => (
           <motion.div
@@ -145,39 +183,101 @@ const AboutApp = () => {
               }}
               className="h-full"
             >
-              <div className="relative p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 h-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-emerald-500/5 to-orange-500/5 rounded-2xl" />
+              <div className="relative p-8 inset-0 bg-gradient-to-br from-cyan-500/5 via-emerald-500/5 to-orange-500/5 rounded-2xl backdrop-blur-xl border border-white/10 h-full overflow-y-scroll">
                 <div className="relative">
-                  <div className="prose prose-invert max-w-none">
-                    <Markdown remarkPlugins={[remarkGfm]}>{markdown}</Markdown>
-                  </div>
-
+                  {activeTab === "features" && (
+                    <div>
+                      <h2 className="text-2xl font-bold text-cyan-50 mb-4">
+                        App Features
+                      </h2>
+                      <ul className="list-disc list-inside text-cyan-200">
+                        <li>Modern and responsive design</li>
+                        <li>High performance and seamless interface</li>
+                        <li>Cross-platform compatibility</li>
+                        <li>Customisable themes and wallpapers</li>
+                      </ul>
+                    </div>
+                  )}
+                  {activeTab === "about" && (
+                    <div>
+                      <h2 className="text-2xl font-bold text-cyan-50 mb-4">
+                        About Portfolio OS
+                      </h2>
+                      <p className="text-cyan-200 mb-2">
+                        Motivation: Born out of a desire to create a digital
+                        portfolio that stands out, blending creativity with
+                        technical precision.
+                      </p>
+                      <p className="text-cyan-200 mb-2">
+                        Technical Implementation: Built using modern
+                        technologies like Next.js, React, and Zustand, ensuring
+                        a fluid experience and robust performance.
+                      </p>
+                      <p className="text-cyan-200">
+                        Future Plans: Expanding functionality with user
+                        customisation, real-time collaboration, and integrated
+                        feedback systems.
+                      </p>
+                    </div>
+                  )}
                   {activeTab === "feedback" && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="mt-6"
-                    >
-                      <div className="relative">
-                        <input
-                          type="text"
-                          placeholder="Share your thoughts..."
-                          className="w-full px-6 py-4 rounded-xl bg-white/5 border border-white/10                        
-                                    text-slate-200 placeholder-slate-400                                                   
-                                    focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20        
-                                    transition-all duration-300"
-                        />
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-2                                  
-                                    rounded-lg bg-gradient-to-r from-cyan-500 to-emerald-500                               
-                                    text-white font-medium"
-                        >
-                          Send
-                        </motion.button>
+                    <div>
+                      <div className="flex-row flex text-center items-center mb-4 gap-4 font-bold text-cyan-50">
+                        <h2 className="text-2xl font-bold text-cyan-50">
+                          Feedback
+                        </h2>
+                        <h3 className={`text-center ${feedbackMessageColor}`}>
+                          {feedbackMessage}
+                        </h3>
                       </div>
-                    </motion.div>
+                      <form
+                        id="emailForm"
+                        className="space-y-4"
+                        onSubmit={handleSubmit}
+                      >
+                        <input
+                          onChange={(e) => setName(e.target.value)}
+                          value={name}
+                          required
+                          type="text"
+                          name="user_name"
+                          placeholder="Your Name"
+                          className="w-full px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-cyan-200 placeholder-slate-400 focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300"
+                        />
+                        <input
+                          onChange={(e) => setEmail(e.target.value)}
+                          value={email}
+                          type="email"
+                          name="user_email"
+                          placeholder="Your Email(Optional)"
+                          className="w-full px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-cyan-200 placeholder-slate-400 focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300"
+                        />
+                        <textarea
+                          onChange={(e) => setMessage(e.target.value)}
+                          value={message}
+                          required
+                          name="message"
+                          placeholder="Your Feedback"
+                          className="w-full px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-cyan-200 placeholder-slate-400 focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300"
+                        ></textarea>
+                        <button
+                          type="submit"
+                          className="px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-emerald-500 text-white font-medium"
+                        >
+                          Send Email
+                        </button>
+                      </form>
+                      <div className="mt-4">
+                        <a
+                          href="https://github.com/shibosoftwaredev/portfolio-os/issues/new"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-cyan-200 underline hover:text-white transition-colors"
+                        >
+                          File an Issue on GitHub
+                        </a>
+                      </div>
+                    </div>
                   )}
                 </div>
               </div>
