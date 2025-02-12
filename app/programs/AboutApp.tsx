@@ -207,12 +207,21 @@ const AboutApp = () => {
                         feedback systems.
                       </p>
                       <p className="text-cyan-200">
-                        Dragon image by:{" "}
+                        Attributions:{" "}
                         <a
                           target="_blank"
                           href="https://www.flaticon.com/authors/egorpolyakov"
+                          title="dragon icon"
                         >
-                          egorpolyakov
+                          dragon
+                        </a>
+                        {", "}
+                        <a
+                          target="_blank"
+                          href="https://www.flaticon.com/authors/logisstudio"
+                          title="dragonfly icon"
+                        >
+                          dragonfly
                         </a>
                       </p>
                     </div>
