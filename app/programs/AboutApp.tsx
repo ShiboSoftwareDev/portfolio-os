@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import * as emailjs from "@emailjs/browser";
+import FeaturesCanvas from "../components/canvas/FeaturesCanvas";
 
 const AboutApp = () => {
   const [activeTab, setActiveTab] = useState("features");
@@ -20,9 +21,9 @@ const AboutApp = () => {
   };
 
   const tabs = [
-    { id: "features", label: "Features", icon: "✨" },
-    { id: "about", label: "About", icon: "ℹ️" },
-    { id: "feedback", label: "Feedback", icon: "📝" },
+    { id: "features", label: "Features" },
+    { id: "about", label: "About" },
+    { id: "feedback", label: "Feedback" },
   ];
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -125,7 +126,7 @@ const AboutApp = () => {
             </h1>
           </div>
           <p className="text-slate-400 mt-4 text-lg">
-            Experience the next generation of digital portfolios
+            A portfolio made with passion
           </p>
         </motion.div>
         <div className="relative mb-8">
@@ -162,7 +163,6 @@ const AboutApp = () => {
                       }}
                     />
                   )}
-                  <span className="relative">{tab.icon}</span>
                   <span className="relative font-medium">{tab.label}</span>
                 </motion.button>
               ))}
@@ -183,21 +183,9 @@ const AboutApp = () => {
               }}
               className="h-full"
             >
-              <div className="relative p-8 inset-0 bg-gradient-to-br from-cyan-500/5 via-emerald-500/5 to-orange-500/5 rounded-2xl backdrop-blur-xl border border-white/10 h-full overflow-y-scroll">
+              <div className="relative p-4 inset-0 bg-gradient-to-br from-cyan-500/5 via-emerald-500/5 to-orange-500/5 rounded-2xl backdrop-blur-xl border border-white/10 h-full overflow-y-scroll">
                 <div className="relative">
-                  {activeTab === "features" && (
-                    <div>
-                      <h2 className="text-2xl font-bold text-cyan-50 mb-4">
-                        App Features
-                      </h2>
-                      <ul className="list-disc list-inside text-cyan-200">
-                        <li>Modern and responsive design</li>
-                        <li>High performance and seamless interface</li>
-                        <li>Cross-platform compatibility</li>
-                        <li>Customisable themes and wallpapers</li>
-                      </ul>
-                    </div>
-                  )}
+                  {activeTab === "features" && <FeaturesCanvas />}
                   {activeTab === "about" && (
                     <div>
                       <h2 className="text-2xl font-bold text-cyan-50 mb-4">
@@ -217,6 +205,15 @@ const AboutApp = () => {
                         Future Plans: Expanding functionality with user
                         customisation, real-time collaboration, and integrated
                         feedback systems.
+                      </p>
+                      <p className="text-cyan-200">
+                        Dragon image by:{" "}
+                        <a
+                          target="_blank"
+                          href="https://www.flaticon.com/authors/egorpolyakov"
+                        >
+                          egorpolyakov
+                        </a>
                       </p>
                     </div>
                   )}
