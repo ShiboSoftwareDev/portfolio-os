@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { SkillCategory } from "../types/portfolio";
+import { TechCategories } from "../types/portfolio";
 
 interface SkillBarProps {
-  category: SkillCategory;
+  category: TechCategories;
 }
 
 export const SkillBar: React.FC<SkillBarProps> = ({ category }) => {

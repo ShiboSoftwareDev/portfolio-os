@@ -15,7 +15,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.005 }}
       className={`                                                                                                        
          p-6 rounded-xl                                                                                                    
          bg-gradient-to-br from-blue-900/50 to-cyan-900/30                                                                 
@@ -54,27 +54,33 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech) => (
                   <span
-                    key={tech}
+                    key={tech.technology}
                     className="px-3 py-1 rounded-full text-sm bg-cyan-500/10 text-cyan-200"
                   >
-                    {tech}
+                    {tech.technology}
                   </span>
                 ))}
               </div>
 
               <div className="flex gap-2">
-                <a
-                  href={project.demoUrl}
-                  className="px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white"
-                >
-                  View Demo
-                </a>
-                <a
-                  href={project.sourceUrl}
-                  className="px-4 py-2 rounded-full bg-cyan-500/10 text-cyan-200"
-                >
-                  Source Code
-                </a>
+                {project.demoUrl && (
+                  <a
+                    target="_blank"
+                    href={project.demoUrl}
+                    className="px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white"
+                  >
+                    View
+                  </a>
+                )}
+                {project.sourceUrl && (
+                  <a
+                    target="_blank"
+                    href={project.sourceUrl}
+                    className="px-4 py-2 rounded-full bg-cyan-500/10 text-cyan-200"
+                  >
+                    Code
+                  </a>
+                )}
               </div>
             </motion.div>
           </motion.div>

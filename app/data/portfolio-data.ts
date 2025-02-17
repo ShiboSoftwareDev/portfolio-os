@@ -1,106 +1,109 @@
-import { Project, SkillCategory } from "../types/portfolio";
+import { Project, TechCategories } from "../types/portfolio";
 
 export const projects: Project[] = [
   {
     id: 1,
-    icon: "🚀",
-    title: "CloudSync Pro",
-    description: "Revolutionary cloud storage with AI-powered organization",
+    icon: "",
+    title: "Tscircuit",
+    description:
+      "Active open source contributor at Tscircuit, a tooling built for AI to create electronics.",
     details:
-      "A cutting-edge cloud storage solution featuring real-time collaboration, AI-powered file organization, and enterprise-grade security.",
-    technologies: ["React", "Node.js", "AWS", "AI/ML"],
-    demoUrl: "https://demo.example.com",
-    sourceUrl: "https://github.com/yourusername/project",
+      "I worked mainly on the core library implementing features and fixing bugs. I also created prompt benchmarks using Evalite and evaluated the code response using Tscircuit tooling. I improved the google lighthouse score of the site from 40 to around 98 by implenting prefetching to vite, automatic generation and dynamic serving of image sizes and removing layout shift. Introduced a Docker-based test suite for the freerouting CLI. Ported Winterspec(a http framework for Tscircuit) to work on windows.",
+    technologies: [
+      { technology: "React", category: "Frontend" },
+      { technology: "Evalite", category: "AI" },
+      { technology: "Vite", category: "Build Tools" },
+      { technology: "React Three Fiber", category: "3D" },
+      { technology: "Bun", category: "Runtime" },
+      { technology: "Tscircuit tools", category: "Tooling" },
+    ],
+    demoUrl: "https://tscircuit.com",
+    sourceUrl: "https://github.com/tscircuit",
   },
   {
     id: 2,
-    icon: "🎮",
-    title: "GameHub Connect",
-    description: "Social gaming platform with matchmaking",
+    icon: "",
+    title: "Alsahm Advertising Website",
+    description: "A website for a local advertising company",
     details:
-      "Advanced gaming platform with real-time matchmaking, chat features, and competitive leaderboards.",
-    technologies: ["Socket.io", "React", "MongoDB", "WebRTC"],
-    demoUrl: "https://demo.example.com",
-    sourceUrl: "https://github.com/yourusername/project",
+      "A group project with my two friends which was our first project, Next.js helped with prerendering and cloudinary helped with image optimization for good seo.",
+    technologies: [
+      { technology: "MongoDB", category: "Database" },
+      { technology: "Mongoose", category: "Database" },
+      { technology: "Zustand", category: "State Management" },
+      { technology: "Email.js", category: "Email" },
+      { technology: "Next.js", category: "Fullstack" },
+      { technology: "Cloudinary", category: "Cloud" },
+    ],
+    demoUrl: "https://alsahm.vercel.app/",
+    sourceUrl: "https://github.com/AlsahmAdvertising/AlsahmAdv-app",
   },
   {
     id: 3,
-    icon: "📱",
-    title: "Mobile Companion App",
-    description: "Cross-platform mobile application for lifestyle management",
+    icon: "",
+    title: "Alsahm Admin Application",
+    description: "A desktop application written using electron.js",
     details:
-      "Feature-rich mobile app with health tracking, task management, and social features.",
-    technologies: ["React Native", "Firebase", "Redux", "Native APIs"],
-    demoUrl: "https://demo.example.com",
-    sourceUrl: "https://github.com/yourusername/project",
+      "For the administration of the Alsahm Advertising website, features include managing users with roles, changing passwords using email OTP, easy management of posts and good security.",
+    technologies: [
+      { technology: "Electron.js", category: "Desktop" },
+      { technology: "Cloudinary", category: "Cloud" },
+      { technology: "React", category: "Frontend" },
+      { technology: "Email.js", category: "Email" },
+    ],
+    demoUrl: "https://youtu.be/re9UYNV5pZs?si=6_UWE3jv5l78NP7G",
+    sourceUrl: "",
   },
   {
     id: 4,
-    icon: "🤖",
-    title: "AI Content Generator",
-    description: "AI-powered content creation and optimization tool",
+    icon: "",
+    title: "Portfolio OS",
+    description: "My favorite project is my portfolio",
     details:
-      "Leverages machine learning to generate and optimize content for various platforms.",
-    technologies: ["Python", "TensorFlow", "GPT-3", "FastAPI"],
-    demoUrl: "https://demo.example.com",
-    sourceUrl: "https://github.com/yourusername/project",
+      "Different versions for mobile and desktop served seperately with the help of Next.js.",
+    technologies: [
+      { technology: "Next.js", category: "Fullstack" },
+      { technology: "Zustand", category: "State Management" },
+      { technology: "framer-motion", category: "Animation" },
+      { technology: "Email.js", category: "Email" },
+      { technology: "Pixi.js", category: "Graphics" },
+    ],
+    demoUrl: "",
+    sourceUrl: "https://github.com/ShiboSoftwareDev/portfolio-os",
+  },
+  {
+    id: 5,
+    icon: "",
+    title: "Ajerly",
+    description: "A rental platform for basically everything",
+    details: "WIP.",
+    technologies: [
+      { technology: "Next.js", category: "Fullstack" },
+      { technology: "Firebase", category: "Cloud" },
+      { technology: "Cloudinary", category: "Cloud" },
+      { technology: "Deno", category: "Runtime" },
+    ],
+    demoUrl: "",
+    sourceUrl: "https://github.com/Ajerly/Ajerly",
   },
 ];
 
-export const skillCategories: SkillCategory[] = [
-  {
-    name: "Frontend",
-    skills: [
-      "React/Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Redux/Zustand",
-      "HTML/CSS",
-      "JavaScript",
-      "Vue.js",
-      "Responsive Design",
-    ],
-  },
-  {
-    name: "Backend",
-    skills: [
-      "Node.js",
-      "Python",
-      "REST APIs",
-      "GraphQL",
-      "Database Design",
-      "Express.js",
-      "MongoDB",
-      "PostgreSQL",
-    ],
-  },
-  {
-    name: "Tools",
-    skills: [
-      "Git",
-      "Docker",
-      "AWS",
-      "CI/CD",
-      "Linux",
-      "Kubernetes",
-      "Jenkins",
-      "Terraform",
-    ],
-  },
-  {
-    name: "Design",
-    skills: [
-      "Figma",
-      "UI/UX",
-      "Design Systems",
-      "Prototyping",
-      "Adobe XD",
-      "Wireframing",
-      "User Research",
-      "Accessibility",
-    ],
-  },
-];
+const techMap = new Map<string, Set<string>>();
+projects.forEach((project) => {
+  project.technologies.forEach(({ technology, category }) => {
+    if (!techMap.has(category)) {
+      techMap.set(category, new Set());
+    }
+    techMap.get(category)!.add(technology);
+  });
+});
+
+export const techCategories: TechCategories[] = Array.from(
+  techMap.entries(),
+).map(([name, skillsSet]) => ({
+  name,
+  skills: Array.from(skillsSet),
+}));
 
 export const socialLinks = {
   github: "https://github.com/yourusername",

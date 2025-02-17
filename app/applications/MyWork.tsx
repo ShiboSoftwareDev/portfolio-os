@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { ProjectCard } from "../components/ProjectCard";
 import { SkillBar } from "../components/SkillBar";
-import { projects, skillCategories } from "../data/portfolio-data";
+import { projects, techCategories } from "../data/portfolio-data";
 
 const MyWork = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -78,11 +78,9 @@ const MyWork = () => {
           animate={{ opacity: 1 }}
           className="mb-12 p-6 rounded-2xl bg-gradient-to-br from-blue-900/50 to-cyan-900/30 backdrop-blur-lg border border-cyan-500/20"
         >
-          <h2 className="text-2xl font-bold text-cyan-50 mb-6">
-            Skills & Expertise
-          </h2>
+          <h2 className="text-2xl font-bold text-cyan-50 mb-6">Tech</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {skillCategories.map((category) => (
+            {techCategories.map((category) => (
               <SkillBar key={category.name} category={category} />
             ))}
           </div>

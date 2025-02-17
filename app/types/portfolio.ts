@@ -4,17 +4,12 @@ export interface Project {
   title: string;
   description: string;
   details: string;
-  technologies: string[];
+  technologies: { technology: string; category: string }[];
   demoUrl?: string;
   sourceUrl?: string;
 }
 
-export interface Skill {
-  name: string;
-  category: "Frontend" | "Backend" | "Tools" | "Design";
-}
-
-export interface SkillCategory {
+export interface TechCategories {
   name: string;
   skills: string[];
 }

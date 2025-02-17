@@ -14,7 +14,9 @@ I contributed to **TSCircuit**, an AI-powered **React framework for electronics*
 
 Now, I'm diving into **Rust** to expand my expertise into **embedded systems**, with the goal of integrating **AI into robotics and low-level hardware**.  
 
-Passionate about the intersection of **AI, hardware, and automation**, I'm always exploring innovative ways to bridge **software intelligence** with real-world applications.`;
+Passionate about the intersection of **AI, hardware, and automation**, I'm always exploring innovative ways to bridge **software intelligence** with real-world applications.
+
+Hobbies: 🏊 and 🏋️`;
 
   const containerVariants = {
     hidden: { opacity: 0 },
