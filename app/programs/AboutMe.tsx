@@ -11,7 +11,7 @@ import { SiLeetcode } from "react-icons/si";
 const AboutMe = () => {
   const markdown = `I'm **Shibo**, a software developer with a strong background in **TypeScript** and **AI-driven applications**.  
 
-I contributed to **TSCircuit**, an AI-powered **React framework for electronics**, where I worked on **benchmarking AI prompts** and optimizing workflows.  
+I contributed to **TSCircuit**, an AI-powered **React framework for electronics**, where I implemented usefull features and countless bug fixes.  
 
 Now, I'm diving into **Rust** to expand my expertise into **embedded systems**, with the goal of integrating **AI into robotics and low-level hardware**.  
 
