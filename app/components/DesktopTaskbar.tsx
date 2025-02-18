@@ -8,7 +8,10 @@ import Clock from "./Clock";
 const DesktopTaskbar = () => {
   // todo taskbar to open and close programs
   return (
-    <nav className="absolute z-10 w-full h-[5%] bottom-0 left-0 flex items-center justify-center gap-4 bg-black">
+    <nav
+      className="absolute z-10 w-full h-[5%] bottom-0 left-0 flex items-center justify-center gap-4 bg-black"
+      style={{ userSelect: "none" }}
+    >
       {AVAILABLE_PROGRAMS.map((programName) => (
         <TaskbarIcon key={programName} programName={programName} />
       ))}

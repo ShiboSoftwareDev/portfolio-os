@@ -78,7 +78,10 @@ const MobileScreen = () => {
           ) : null,
         )}
       </div>
-      <nav className="fixed z-50 bottom-0 w-full h-8 flex justify-center items-center">
+      <nav
+        className="fixed z-50 bottom-0 w-full h-8 flex justify-center items-center"
+        style={{ userSelect: "none" }}
+      >
         <div
           className="w-[64px] h-[5px] rounded-full bg-white/60 active:bg-white/80 transition-colors ring-1 ring-black/20"
           onClick={navClicked}

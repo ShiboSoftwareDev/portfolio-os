@@ -51,7 +51,7 @@ const Clock = ({
   }, [getCurrentTime]);
 
   return (
-    <div>
+    <div style={{ userSelect: "none" }}>
       <span
         className="text-white font-medium"
         style={{
