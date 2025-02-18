@@ -66,7 +66,7 @@ const Process = ({
         setHeight(height + delta.height);
       }}
     >
-      <div className="frame bg-blue-200 h-8 flex flex-row border-b border-blue-300 items-center justify-between text-black z-[1000]">
+      <div className="frame bg-blue-200 h-8 flex flex-row border-b border-blue-300 items-center justify-between text-black z-50">
         <h1>{title}</h1>
         <div className="flex flex-row h-full">
           <button className="h-full aspect-square border-l border-blue-300 hover:bg-blue-300">

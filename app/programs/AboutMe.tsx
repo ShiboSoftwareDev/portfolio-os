@@ -55,7 +55,7 @@ Hobbies: 🏊 and 🏋️`;
   );
 
   return (
-    <div className="h-full w-full bg-gradient-to-br from-emerald-950 via-teal-900 to-cyan-900 pb-10 text-white overflow-y-scroll">
+    <div className="h-full w-full bg-gradient-to-br from-emerald-950 via-teal-900 to-cyan-900 pb-10 text-white overflow-y-scroll translate-x-0 translate-y-0">
       <div className="absolute inset-0 opacity-30 overflow-hidden pointer-events-none">
         {emeraldPatterns.map((pattern) => (
           <motion.div
