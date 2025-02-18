@@ -6,23 +6,32 @@ import { projects, techCategories } from "../data/portfolio-data";
 
 const MyWork = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
+
   const backgroundCircles = useMemo(
     () =>
-      Array.from({ length: 20 }, (_, i) => ({
-        id: i,
-        width: Math.random() * 100 + 20,
-        height: Math.random() * 100 + 20,
-        left: Math.random() * 100,
-        top: Math.random() * 100,
-        animationDelay: Math.random() * 5,
-        animationDuration: Math.random() * 10 + 10,
-      })),
+      Array.from({ length: 20 }, (_, i) => {
+        const width = Math.random() * 100 + 20;
+        const height = Math.random() * 100 + 20;
+        const left = Math.random() * 100;
+        const top = Math.random() * 100;
+        const animationDelay = Math.random() * 5;
+        const animationDuration = Math.random() * 10 + 10;
+        return {
+          id: `mywork-${i}${width}${height}${left}${top}${animationDelay}${animationDuration}`,
+          width,
+          height,
+          left,
+          top,
+          animationDelay,
+          animationDuration,
+        };
+      }),
     [],
   );
 
   return (
     <div className="h-full w-full bg-gradient-to-br from-blue-950 via-cyan-900 to-slate-900 overflow-y-auto">
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {backgroundCircles.map((circle) => (
           <div
             key={circle.id}

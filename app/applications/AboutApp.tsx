@@ -55,23 +55,33 @@ const AboutApp = () => {
 
   const geometricShapes = useMemo(
     () =>
-      Array.from({ length: 15 }, (_, i) => ({
-        id: `aboutapp-${i}`,
-        type: ["circle", "square", "triangle"][Math.floor(Math.random() * 3)],
-        size: Math.random() * 60 + 40,
-        position: {
-          x: Math.random() * 100,
-          y: Math.random() * 100,
-        },
-        rotation: Math.random() * 360,
-        duration: Math.random() * 20 + 20,
-      })),
+      Array.from({ length: 15 }, (_, i) => {
+        const type = ["circle", "square", "triangle"][
+          Math.floor(Math.random() * 3)
+        ];
+        const size = Math.random() * 60 + 40;
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const rotation = Math.random() * 360;
+        const duration = Math.random() * 20 + 20;
+        return {
+          id: `aboutapp-${i}${type}${size}${x}${y}${rotation}${duration}`,
+          type,
+          size,
+          position: {
+            x,
+            y,
+          },
+          rotation,
+          duration,
+        };
+      }),
     [],
   );
 
   return (
     <div className="h-full w-full bg-[#0A192F] overflow-hidden pb-10">
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {geometricShapes.map((shape) => (
           <motion.div
             key={shape.id}

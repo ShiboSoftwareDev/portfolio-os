@@ -36,46 +36,51 @@ Hobbies: 🏊 and 🏋️`;
 
   const emeraldPatterns = useMemo(
     () =>
-      Array.from({ length: 20 }, (_, i) => ({
-        id: `aboutme-${i}`,
-        size: Math.random() * 300 + 50,
-        left: Math.random() * 100,
-        top: Math.random() * 100,
-        duration: Math.random() * 10 + 10,
-        delay: Math.random() * 5,
-      })),
+      Array.from({ length: 20 }, (_, i) => {
+        const size = Math.random() * 300 + 50;
+        const left = Math.random() * 100;
+        const top = Math.random() * 100;
+        const duration = Math.random() * 10 + 10;
+        const delay = Math.random() * 5;
+        return {
+          id: `aboutme-${i}${size}${left}${top}${duration}${delay}`,
+          size,
+          left,
+          top,
+          duration,
+          delay,
+        };
+      }),
     [],
   );
 
   return (
-    <div className="h-full w-full bg-gradient-to-br from-emerald-950 via-teal-900 to-cyan-900 overflow-y-auto pb-10 text-white">
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute w-full h-full opacity-10">
-          {emeraldPatterns.map((pattern) => (
-            <motion.div
-              key={pattern.id}
-              className="absolute rounded-full border border-teal-500/30"
-              style={{
-                width: pattern.size,
-                height: pattern.size,
-                left: `${pattern.left}%`,
-                top: `${pattern.top}%`,
-                containIntrinsicSize: "auto",
-                contain: "strict",
-              }}
-              animate={{
-                scale: [1, 1.2, 1],
-                rotate: [0, 180, 360],
-              }}
-              transition={{
-                duration: pattern.duration,
-                delay: pattern.delay,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-            />
-          ))}
-        </div>
+    <div className="h-full w-full bg-gradient-to-br from-emerald-950 via-teal-900 to-cyan-900 pb-10 text-white overflow-y-scroll">
+      <div className="absolute inset-0 opacity-30 overflow-hidden pointer-events-none">
+        {emeraldPatterns.map((pattern) => (
+          <motion.div
+            key={pattern.id}
+            className="absolute rounded-full border border-teal-500/30"
+            style={{
+              width: pattern.size,
+              height: pattern.size,
+              left: `${pattern.left}%`,
+              top: `${pattern.top}%`,
+              containIntrinsicSize: "auto",
+              contain: "strict",
+            }}
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: pattern.duration,
+              delay: pattern.delay,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+        ))}
       </div>
 
       <motion.div
