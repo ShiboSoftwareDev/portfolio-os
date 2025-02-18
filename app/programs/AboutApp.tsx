@@ -79,7 +79,7 @@ const AboutApp = () => {
   );
 
   return (
-    <div className="h-full w-full bg-[#0A192F] overflow-y-scroll pb-10 translate-x-0 translate-y-0">
+    <div className="relative -z-50 h-full w-full bg-[#0A192F] overflow-y-scroll overflow-x-hidden pb-10">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {geometricShapes.map((shape) => (
           <motion.div

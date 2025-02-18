@@ -30,8 +30,8 @@ const MyWork = () => {
   );
 
   return (
-    <div className="h-full w-full bg-gradient-to-br from-blue-950 via-cyan-900 to-slate-900 overflow-y-scroll translate-x-0 translate-y-0">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="relative h-full w-full bg-gradient-to-br from-blue-950 via-cyan-900 to-slate-900 overflow-y-scroll overflow-x-hidden -z-50">
+      <div className="absolute h-full inset-0 overflow-hidden pointer-events-none">
         {backgroundCircles.map((circle) => (
           <div
             key={circle.id}

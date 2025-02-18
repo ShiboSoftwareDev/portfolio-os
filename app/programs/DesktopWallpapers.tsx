@@ -9,7 +9,7 @@ const MobileWallpapers = () => {
 
   return (
     <div className="h-full bg-slate-800 overflow-scroll">
-      <header className="w-full h-14 flex items-center px-4 backdrop-blur-md mt-4">
+      <header className="w-full h-14 flex items-center px-4 backdrop-blur-md mt-4 pointer-events-none">
         <span
           className="text-lg text-white text-center w-full font-medium"
           style={{
