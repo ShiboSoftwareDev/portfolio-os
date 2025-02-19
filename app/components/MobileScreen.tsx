@@ -8,6 +8,7 @@ import Clock from "./Clock";
 import BackgroundAppWindow from "./BackgroundAppWindow";
 import definePlatform from "../utils/definePlatform";
 import { useRouter } from "next/navigation";
+import MobileNav from "./MobileNav";
 
 const MobileScreen = () => {
   const applications = useApplicationManager();
@@ -100,17 +101,11 @@ const MobileScreen = () => {
             : null
         )}
       </div>
-      <nav
-        className="fixed z-50 bottom-0 w-full h-[7%] flex justify-center items-center"
-        style={{ userSelect: "none" }}
-      >
-        <div
-          className="w-[30%] h-[15%] rounded-full bg-white/60 active:bg-white/80 transition-colors ring-1 ring-black/20"
-          onClick={navClicked}
-          onTouchEnd={navTouchEnd}
-          onTouchStart={navTouchStart}
-        />
-      </nav>
+      <MobileNav
+        navClicked={navClicked}
+        navTouchStart={navTouchStart}
+        navTouchEnd={navTouchEnd}
+      />
     </section>
   );
 };
