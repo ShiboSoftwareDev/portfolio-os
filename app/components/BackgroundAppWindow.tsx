@@ -45,8 +45,7 @@ const BackgroundAppWindow = ({
     >
       {isTouched && (
         <div
-          className="absolute w-full text-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 text-white text-base font-medium    
- pointer-events-none"
+          className="absolute w-full text-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 text-white text-base font-medium pointer-events-none"
           style={{
             userSelect: "none",
             textShadow:

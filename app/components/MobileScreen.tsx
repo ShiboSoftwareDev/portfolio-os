@@ -62,7 +62,7 @@ const MobileScreen = () => {
         onClick={() => setBackgroundView(false)}
         className={`${
           backgroundView
-            ? "absolute h-full min-w-full flex items-center justify-center pt-16 px-4 gap-4 z-20 bg-black/20 backdrop-blur-sm overflow-y-scroll"
+            ? "absolute h-full min-w-full flex items-center justify-center pt-[10%] px-4 gap-4 z-20 bg-black/20 backdrop-blur-sm overflow-y-scroll"
             : `absolute w-full h-full`
         } `}
       >
