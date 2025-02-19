@@ -20,7 +20,7 @@ const MobileScreen = () => {
   );
 
   const router = useRouter();
-
+  console.log(backgroundView);
   const navClicked = () => {
     setBackgroundView(false);
     changeApplicationState("", "minimized");
@@ -96,7 +96,7 @@ const MobileScreen = () => {
                     : ""
                 } ${
                   application.state === "minimized" && !backgroundView
-                    ? "hidden"
+                    ? "hidden pointer-events-none touch-none"
                     : ""
                 } ${touchedApps[application.title] ? "scale-95" : ""}`}
                 key={application.title}
