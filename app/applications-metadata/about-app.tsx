@@ -29,7 +29,7 @@ export const createAboutAppSlice: StateCreator<
       icon: (
         <IoMdInformationCircleOutline
           className="h-[60%] w-[60%]"
-          color="black"
+          color="white"
         />
       ),
       applicationState: "closed",
