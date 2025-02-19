@@ -12,7 +12,6 @@
     "npm:next@14.2.13": "14.2.13_react@18.3.1_react-dom@18.3.1__react@18.3.1",
     "npm:pixi.js@^7.4.2": "7.4.2_@pixi+core@7.4.2_@pixi+display@7.4.2__@pixi+core@7.4.2_@pixi+events@7.4.2__@pixi+core@7.4.2__@pixi+display@7.4.2___@pixi+core@7.4.2_@pixi+assets@7.4.2__@pixi+core@7.4.2_@pixi+sprite@7.4.2__@pixi+core@7.4.2__@pixi+display@7.4.2___@pixi+core@7.4.2_@pixi+mesh@7.4.2__@pixi+core@7.4.2__@pixi+display@7.4.2___@pixi+core@7.4.2_@pixi+graphics@7.4.2__@pixi+core@7.4.2__@pixi+display@7.4.2___@pixi+core@7.4.2__@pixi+sprite@7.4.2___@pixi+core@7.4.2___@pixi+display@7.4.2____@pixi+core@7.4.2_@pixi+text@7.4.2__@pixi+core@7.4.2__@pixi+sprite@7.4.2___@pixi+core@7.4.2___@pixi+display@7.4.2____@pixi+core@7.4.2__@pixi+display@7.4.2___@pixi+core@7.4.2",
     "npm:postcss@8": "8.5.2",
-    "npm:prettier@3.3.3": "3.3.3",
     "npm:re-resizable@^6.10.0": "6.10.3_react@18.3.1_react-dom@18.3.1__react@18.3.1",
     "npm:react-dom@18": "18.3.1_react@18.3.1",
     "npm:react-draggable@^4.4.6": "4.4.6_react@18.3.1_react-dom@18.3.1__react@18.3.1",
@@ -2838,9 +2837,6 @@
     "prelude-ls@1.2.1": {
       "integrity": "sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g=="
     },
-    "prettier@3.3.3": {
-      "integrity": "sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew=="
-    },
     "prop-types@15.8.1": {
       "integrity": "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==",
       "dependencies": [
@@ -3701,7 +3697,6 @@
         "npm:next@14.2.13",
         "npm:pixi.js@^7.4.2",
         "npm:postcss@8",
-        "npm:prettier@3.3.3",
         "npm:re-resizable@^6.10.0",
         "npm:react-dom@18",
         "npm:react-draggable@^4.4.6",
