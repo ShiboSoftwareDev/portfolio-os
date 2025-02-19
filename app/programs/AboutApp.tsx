@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import * as emailjs from "@emailjs/browser";
 import FeaturesCanvas from "../components/canvas/FeaturesCanvas";
 
@@ -88,8 +88,8 @@ const AboutApp = () => {
               shape.type === "circle"
                 ? "rounded-full border-2 border-cyan-500/10"
                 : shape.type === "square"
-                  ? "border-2 border-emerald-500/10"
-                  : "border-t-2 border-orange-500/10"
+                ? "border-2 border-emerald-500/10"
+                : "border-t-2 border-orange-500/10"
             }`}
             style={{
               width: shape.size,
@@ -154,10 +154,10 @@ const AboutApp = () => {
                  relative px-6 py-3 rounded-xl flex items-center gap-2                                                     
                  transition-all duration-300 ease-out                                                                      
                  ${
-                   activeTab === tab.id
-                     ? "text-white"
-                     : "text-slate-400 hover:text-white"
-                 }                                                                    
+                    activeTab === tab.id
+                      ? "text-white"
+                      : "text-slate-400 hover:text-white"
+                  }                                                                    
                `}
                   onClick={() => setActiveTab(tab.id)}
                 >
@@ -274,7 +274,8 @@ const AboutApp = () => {
                           name="message"
                           placeholder="Your Feedback"
                           className="w-full px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-cyan-200 placeholder-slate-400 focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300"
-                        ></textarea>
+                        >
+                        </textarea>
                         <button
                           type="submit"
                           className="px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-emerald-500 text-white font-medium"

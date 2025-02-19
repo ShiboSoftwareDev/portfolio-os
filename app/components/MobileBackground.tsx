@@ -21,13 +21,15 @@ const MobileBackground = () => {
       className="absolute -z-50 top-0 left-0 w-full h-full bg-black"
       style={{ userSelect: "none" }}
     >
-      {mobileWallpaperId ? (
-        mobileWallpapers[mobileWallpaperId]
-      ) : (
-        <div className="h-full w-full flex items-center justify-center">
-          <CircleLoader color="white" />
-        </div>
-      )}
+      {mobileWallpaperId
+        ? (
+          mobileWallpapers[mobileWallpaperId]
+        )
+        : (
+          <div className="h-full w-full flex items-center justify-center">
+            <CircleLoader color="white" />
+          </div>
+        )}
     </section>
   );
 };

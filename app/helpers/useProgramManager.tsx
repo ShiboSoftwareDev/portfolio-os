@@ -15,7 +15,7 @@ const useProgramManager = () => {
   return sortedPrograms.map((program) =>
     programState[program].programState !== "closed"
       ? programState[program].process()
-      : null,
+      : null
   );
 };
 

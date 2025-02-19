@@ -24,13 +24,15 @@ const DesktopBackground = () => {
       className="absolute -z-50 top-0 left-0 w-full h-full bg-black"
       style={{ userSelect: "none" }}
     >
-      {desktopWallpaperId ? (
-        desktopWallpapers[desktopWallpaperId]
-      ) : (
-        <div className="h-full w-full flex items-center justify-center">
-          <CircleLoader color="white" />
-        </div>
-      )}
+      {desktopWallpaperId
+        ? (
+          desktopWallpapers[desktopWallpaperId]
+        )
+        : (
+          <div className="h-full w-full flex items-center justify-center">
+            <CircleLoader color="white" />
+          </div>
+        )}
     </section>
   );
 };

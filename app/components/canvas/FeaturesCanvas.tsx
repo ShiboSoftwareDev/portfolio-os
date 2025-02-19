@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { TextStyle } from "pixi.js";
-import { Stage, Container, Sprite, Text } from "@pixi/react";
+import { Container, Sprite, Stage, Text } from "@pixi/react";
 
 const features = [
   "Open source",
@@ -28,7 +28,7 @@ const FeaturesCanvas = () => {
   useEffect(() => {
     setInterval(() => {
       setDragonOffset((dragonOffset) =>
-        dragonOffset > 1200 ? 0 : dragonOffset + 3,
+        dragonOffset > 1200 ? 0 : dragonOffset + 3
       );
     }, 1);
   }, []);
@@ -48,15 +48,13 @@ const FeaturesCanvas = () => {
         <Text
           resolution={2}
           text={text}
-          style={
-            new TextStyle({
-              fontFamily: "robotic",
-              fontSize: 20,
-              align: "center",
-              fill: "0xffffff",
-              letterSpacing: 2,
-            })
-          }
+          style={new TextStyle({
+            fontFamily: "robotic",
+            fontSize: 20,
+            align: "center",
+            fill: "0xffffff",
+            letterSpacing: 2,
+          })}
         />
       </Container>
     );
@@ -91,7 +89,8 @@ const FeaturesCanvas = () => {
       <div
         className="h-full absolute left-0 top-0"
         style={{ width: canvasWidth }}
-      ></div>
+      >
+      </div>
     </>
   );
 };

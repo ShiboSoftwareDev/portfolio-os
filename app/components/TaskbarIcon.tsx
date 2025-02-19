@@ -24,12 +24,11 @@ const TaskbarIcon = ({
     updateLastActive();
     changeProgramState(programState !== "open" ? "open" : "minimized");
   };
-  const borderColor =
-    programState === "open"
-      ? "border-blue-500 bg-blue-500"
-      : programState === "minimized"
-        ? "border-blue-500 bg-white"
-        : "border-white bg-white";
+  const borderColor = programState === "open"
+    ? "border-blue-500 bg-blue-500"
+    : programState === "minimized"
+    ? "border-blue-500 bg-white"
+    : "border-white bg-white";
   return (
     <>
       <div

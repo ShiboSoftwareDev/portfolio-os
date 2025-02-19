@@ -17,7 +17,8 @@ const MyWork = () => {
         const animationDelay = Math.random() * 5;
         const animationDuration = Math.random() * 10 + 10;
         return {
-          id: `mywork-${i}${width}${height}${left}${top}${animationDelay}${animationDuration}`,
+          id:
+            `mywork-${i}${width}${height}${left}${top}${animationDelay}${animationDuration}`,
           width,
           height,
           left,
@@ -76,8 +77,7 @@ const MyWork = () => {
               onSelect={() =>
                 setSelectedProject(
                   selectedProject === project.id ? null : project.id,
-                )
-              }
+                )}
             />
           ))}
         </div>

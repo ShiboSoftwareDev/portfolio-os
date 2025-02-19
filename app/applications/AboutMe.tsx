@@ -8,7 +8,8 @@ import { FaXTwitter } from "react-icons/fa6";
 import { GiArtificialIntelligence } from "react-icons/gi";
 
 const AboutMe = () => {
-  const markdown = `I'm **Shibo**, a software developer with a strong background in **TypeScript** and **AI-driven applications**.  
+  const markdown =
+    `I'm **Shibo**, a software developer with a strong background in **TypeScript** and **AI-driven applications**.  
 
 I contributed to **TSCircuit**, an AI-powered **React framework for electronics**, where I implemented usefull features and countless bug fixes.  
 

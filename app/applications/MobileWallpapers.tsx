@@ -35,10 +35,8 @@ const MobileWallpapers = () => {
             <div className="absolute inset-0 transition-transform group-active:scale-95">
               {mobileWallpapers[Number(mobileWallpaperId)]}
             </div>
-            <div
-              className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40 opacity-0         
- group-hover:opacity-100 transition-opacity"
-            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40 opacity-0         
+ group-hover:opacity-100 transition-opacity" />
             <div
               className="absolute bottom-2 left-2 text-sm text-white font-medium opacity-0 group-hover:opacity-100        
  transition-opacity"

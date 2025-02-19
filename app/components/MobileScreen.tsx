@@ -29,8 +29,9 @@ const MobileScreen = () => {
     }
   };
   useEffect(() => {
-    if (applications.every((app) => !app?.application === true))
+    if (applications.every((app) => !app?.application === true)) {
       setBackgroundView(false);
+    }
   }, [applications]);
 
   return (
@@ -48,34 +49,37 @@ const MobileScreen = () => {
         } `}
       >
         {applications.map((application) =>
-          application ? (
-            <div
-              className={`z-20 ${
-                backgroundView
-                  ? "relative h-[70vh] w-[70vw] rounded-2xl overflow-hidden shadow-lg transition-transform"
-                  : ""
-              } ${
-                application.state === "minimized" && !backgroundView
-                  ? "hidden"
-                  : ""
-              } ${touchedApps[application.title] ? "scale-95" : ""}`}
-              key={application.title}
-            >
-              {backgroundView ? (
-                <BackgroundAppWindow
-                  title={application.title}
-                  setBackgroundView={setBackgroundView}
-                  setTouchedApp={(state) =>
-                    setTouchedApps((prev) => ({
-                      ...prev,
-                      [application.title]: state,
-                    }))
-                  }
-                />
-              ) : null}
-              {application.application}
-            </div>
-          ) : null,
+          application
+            ? (
+              <div
+                className={`z-20 ${
+                  backgroundView
+                    ? "relative h-[70vh] w-[70vw] rounded-2xl overflow-hidden shadow-lg transition-transform"
+                    : ""
+                } ${
+                  application.state === "minimized" && !backgroundView
+                    ? "hidden"
+                    : ""
+                } ${touchedApps[application.title] ? "scale-95" : ""}`}
+                key={application.title}
+              >
+                {backgroundView
+                  ? (
+                    <BackgroundAppWindow
+                      title={application.title}
+                      setBackgroundView={setBackgroundView}
+                      setTouchedApp={(state) =>
+                        setTouchedApps((prev) => ({
+                          ...prev,
+                          [application.title]: state,
+                        }))}
+                    />
+                  )
+                  : null}
+                {application.application}
+              </div>
+            )
+            : null
         )}
       </div>
       <nav

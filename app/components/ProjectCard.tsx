@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Project } from "../types/portfolio";
 
 interface ProjectCardProps {
@@ -21,7 +21,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
          bg-gradient-to-br from-blue-900/50 to-cyan-900/30                                                                 
          backdrop-blur-lg border border-cyan-500/20                                                                        
          transform transition-all duration-300                                                                             
-         ${isSelected ? "scale-105" : ""}                                                                                  
+         ${
+        isSelected ? "scale-105" : ""
+      }                                                                                  
        `}
       onClick={onSelect}
     >

@@ -8,11 +8,11 @@ const useApplicationManager = () => {
   return AVAILABLE_APPLICATIONS.map((program) =>
     applicationState[program].applicationState !== "closed"
       ? {
-          application: applicationState[program].application(),
-          state: applicationState[program].applicationState,
-          title: program,
-        }
-      : null,
+        application: applicationState[program].application(),
+        state: applicationState[program].applicationState,
+        title: program,
+      }
+      : null
   );
 };
 

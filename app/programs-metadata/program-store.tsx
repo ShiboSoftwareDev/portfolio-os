@@ -8,10 +8,10 @@ import {
 import { createMyWorkSlice, MyWorkInterface } from "./my-work";
 
 export const useProgramStore = create<
-  AboutMeInterface &
-    AboutAppInterface &
-    DesktopWallpapersInterface &
-    MyWorkInterface
+  & AboutMeInterface
+  & AboutAppInterface
+  & DesktopWallpapersInterface
+  & MyWorkInterface
 >()((...a) => ({
   ...createAboutMeSlice(...a),
   ...createAboutAppSlice(...a),

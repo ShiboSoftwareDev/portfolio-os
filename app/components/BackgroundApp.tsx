@@ -14,9 +14,9 @@ const BackgroundApp = ({
     (state) => state[applicationName].applicationState,
   );
   const open = applicationState !== "closed" ? true : false;
-  return open ? (
-    <div className={`absolute h-full w-full z-10 bg-white`}>{children}</div>
-  ) : null;
+  return open
+    ? <div className={`absolute h-full w-full z-10 bg-white`}>{children}</div>
+    : null;
 };
 
 export default BackgroundApp;
