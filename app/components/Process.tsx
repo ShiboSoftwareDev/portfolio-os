@@ -25,8 +25,8 @@ const Process = ({
   const changeProgramState = useChangeProgramState(programName);
   const hidden = programState === "minimized" ? { display: "none" } : {};
   const [size, setSize] = useState("");
-  const [width, setWidth] = useState(600);
-  const [height, setHeight] = useState(700);
+  const [width, setWidth] = useState(700);
+  const [height, setHeight] = useState(500);
   const [positionY, setPositionY] = useState(() => {
     const current = globalOffset.y;
     if (globalOffset.y > 150) globalOffset.y = 0;
@@ -48,6 +48,8 @@ const Process = ({
       dragHandleClassName="frame"
       style={hidden}
       className={`border border-blue-300 z-50 bg-white overflow-hidden ${fullscreen}`}
+      minWidth={400}
+      minHeight={300}
       size={{
         width: size !== "fullscreen" ? width : "100%",
         height: size !== "fullscreen" ? height : "100%",
