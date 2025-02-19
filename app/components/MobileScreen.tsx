@@ -6,6 +6,8 @@ import { useChangeApplicationsState } from "../helpers/useChangeApplicationsStat
 import { TouchEvent, useEffect, useState } from "react";
 import Clock from "./Clock";
 import BackgroundAppWindow from "./BackgroundAppWindow";
+import definePlatform from "../utils/definePlatform";
+import { useRouter } from "next/navigation";
 
 const MobileScreen = () => {
   const applications = useApplicationManager();
@@ -15,6 +17,9 @@ const MobileScreen = () => {
   const [touchedApps, setTouchedApps] = useState<{ [key: string]: boolean }>(
     {},
   );
+
+  const router = useRouter();
+
   const navClicked = () => {
     setBackgroundView(false);
     changeApplicationState("", "minimized");
@@ -33,6 +38,19 @@ const MobileScreen = () => {
       setBackgroundView(false);
     }
   }, [applications]);
+
+  useEffect(() => {
+    if (definePlatform() === "desktop") {
+      router.replace("/desktop");
+    }
+    if (window) {
+      window.onresize = () => {
+        if (definePlatform() === "desktop") {
+          router.replace("/desktop");
+        }
+      };
+    }
+  }, [router]);
 
   return (
     <section className="absolute w-full h-full top-0 left-0 overflow-y-scroll">
