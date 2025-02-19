@@ -1,10 +1,12 @@
-import React, { TouchEvent } from "react";
+import React, { MouseEvent, TouchEvent } from "react";
 
 const MobileNav = (
-  { navClicked, navTouchEnd, navTouchStart }: {
+  { navClicked, navTouchEnd, navTouchStart, navMouseLeave, navMouseDown }: {
     navClicked: () => void;
     navTouchEnd: (e: TouchEvent) => void;
     navTouchStart: (e: TouchEvent) => void;
+    navMouseDown: (e: MouseEvent) => void;
+    navMouseLeave: (e: MouseEvent) => void;
   },
 ) => {
   return (
@@ -17,6 +19,8 @@ const MobileNav = (
         onClick={navClicked}
         onTouchEnd={navTouchEnd}
         onTouchStart={navTouchStart}
+        onMouseDown={navMouseDown}
+        onMouseLeave={navMouseLeave}
       />
     </nav>
   );

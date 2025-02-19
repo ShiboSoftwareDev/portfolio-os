@@ -3,7 +3,7 @@
 import type React from "react";
 import useApplicationManager from "../helpers/useApplicationManager";
 import { useChangeApplicationsState } from "../helpers/useChangeApplicationsState";
-import { TouchEvent, useEffect, useState } from "react";
+import { MouseEvent, TouchEvent, useEffect, useState } from "react";
 import Clock from "./Clock";
 import BackgroundAppWindow from "./BackgroundAppWindow";
 import definePlatform from "../utils/definePlatform";
@@ -25,11 +25,27 @@ const MobileScreen = () => {
     setBackgroundView(false);
     changeApplicationState("", "minimized");
   };
+
   const navTouchStart = (e: TouchEvent) => {
-    setTouchStartPostion(e.changedTouches[0].clientY);
+    const clientY = e.changedTouches[0].clientY;
+    setTouchStartPostion(clientY);
   };
+  const navMouseDown = (e: MouseEvent) => {
+    const clientY = e.clientY;
+    setTouchStartPostion(clientY);
+  };
+
   const navTouchEnd = (e: TouchEvent) => {
-    if (touchStartPosition > e.changedTouches[0].clientY + 20) {
+    const clientY = e.changedTouches[0].clientY;
+    if (touchStartPosition > clientY + 20) {
+      setBackgroundView(true);
+      changeApplicationState("", "minimized");
+    }
+  };
+
+  const navMouseLeave = (e: MouseEvent) => {
+    const clientY = e.clientY;
+    if (touchStartPosition > clientY) {
       setBackgroundView(true);
       changeApplicationState("", "minimized");
     }
@@ -105,6 +121,8 @@ const MobileScreen = () => {
         navClicked={navClicked}
         navTouchStart={navTouchStart}
         navTouchEnd={navTouchEnd}
+        navMouseLeave={navMouseLeave}
+        navMouseDown={navMouseDown}
       />
     </section>
   );
