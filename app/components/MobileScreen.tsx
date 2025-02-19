@@ -50,8 +50,11 @@ const MobileScreen = () => {
       changeApplicationState("", "minimized");
     }
   };
+
   useEffect(() => {
-    if (applications.every((app) => !app?.application === true)) {
+    if (
+      applications.every((app) => !app?.state || app?.state !== "minimized")
+    ) {
       setBackgroundView(false);
     }
   }, [applications]);
