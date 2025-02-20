@@ -20,7 +20,7 @@ const MobileScreen = () => {
   );
 
   const router = useRouter();
-  console.log(backgroundView);
+
   const navClicked = () => {
     setBackgroundView(false);
     changeApplicationState("", "minimized");
@@ -50,11 +50,8 @@ const MobileScreen = () => {
       changeApplicationState("", "minimized");
     }
   };
-
   useEffect(() => {
-    if (
-      applications.every((app) => !app?.state || app?.state !== "minimized")
-    ) {
+    if (applications.every((app) => !app?.application === true)) {
       setBackgroundView(false);
     }
   }, [applications]);
@@ -96,7 +93,7 @@ const MobileScreen = () => {
                     : ""
                 } ${
                   application.state === "minimized" && !backgroundView
-                    ? "hidden pointer-events-none touch-none"
+                    ? "hidden"
                     : ""
                 } ${touchedApps[application.title] ? "scale-95" : ""}`}
                 key={application.title}
