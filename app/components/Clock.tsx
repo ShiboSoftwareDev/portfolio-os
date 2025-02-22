@@ -61,7 +61,7 @@ const Clock = ({
             "-0.5px -0.5px 0 rgba(0,0,0,0.5), 0.5px -0.5px 0 rgba(0,0,0,0.5), -0.5px 0.5px 0 rgba(0,0,0,0.5), 0.5px 0.5px 0 rgba(0,0,0,0.5)",
         }}
       >
-        {time}
+        {time.replace(/^0+/, "")}
       </span>
     </div>
   );
