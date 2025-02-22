@@ -5,8 +5,8 @@ import remarkGfm from "remark-gfm";
 import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
-import { GiArtificialIntelligence } from "react-icons/gi";
 import { SiLeetcode } from "react-icons/si";
+import Image from "next/image";
 
 const AboutMe = () => {
   const markdown =
@@ -93,10 +93,14 @@ Hobbies: 🏊 and 🏋️`;
         <motion.div variants={itemVariants} className="mb-8 text-center">
           <div className="relative inline-block">
             <div className="w-32 h-32 rounded-full bg-gradient-to-br from-teal-400 to-emerald-500 p-1">
-              <div className="w-full h-full rounded-full bg-teal-950 flex items-center justify-center">
-                <span className="text-4xl">
-                  <GiArtificialIntelligence />
-                </span>
+              <div className="w-full h-full rounded-full bg-teal-950 flex items-center justify-center overflow-hidden">
+                <Image
+                  src={"/images/robots-shaking-hands.jpg"}
+                  alt="robots-shaking-hands"
+                  width={200}
+                  height={200}
+                  className=""
+                />
               </div>
             </div>
             <motion.div
