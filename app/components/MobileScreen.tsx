@@ -3,7 +3,7 @@
 import type React from "react";
 import useApplicationManager from "../helpers/useApplicationManager";
 import { useChangeApplicationsState } from "../helpers/useChangeApplicationsState";
-import { MouseEvent, TouchEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Clock from "./Clock";
 import definePlatform from "../utils/definePlatform";
 import { useRouter } from "next/navigation";
@@ -13,7 +13,6 @@ import { AppWindow } from "./AppWindow";
 const MobileScreen = () => {
   const applications = useApplicationManager();
   const changeApplicationState = useChangeApplicationsState();
-  const [touchStartPosition, setTouchStartPostion] = useState(0);
   const [backgroundView, setBackgroundView] = useState(false);
   const [touchedApps, setTouchedApps] = useState<{ [key: string]: boolean }>(
     {},
@@ -21,35 +20,6 @@ const MobileScreen = () => {
 
   const router = useRouter();
 
-  const navClicked = () => {
-    setBackgroundView(false);
-    changeApplicationState("", "minimized");
-  };
-
-  const navTouchStart = (e: TouchEvent) => {
-    const clientY = e.changedTouches[0].clientY;
-    setTouchStartPostion(clientY);
-  };
-  const navMouseDown = (e: MouseEvent) => {
-    const clientY = e.clientY;
-    setTouchStartPostion(clientY);
-  };
-
-  const navTouchEnd = (e: TouchEvent) => {
-    const clientY = e.changedTouches[0].clientY;
-    if (touchStartPosition > clientY + 20) {
-      setBackgroundView(true);
-      changeApplicationState("", "minimized");
-    }
-  };
-
-  const navMouseLeave = (e: MouseEvent) => {
-    const clientY = e.clientY;
-    if (touchStartPosition > clientY) {
-      setBackgroundView(true);
-      changeApplicationState("", "minimized");
-    }
-  };
   useEffect(() => {
     if (applications.every((app) => !app?.application === true)) {
       setBackgroundView(false);
@@ -102,11 +72,8 @@ const MobileScreen = () => {
         )}
       </div>
       <MobileNav
-        navClicked={navClicked}
-        navTouchStart={navTouchStart}
-        navTouchEnd={navTouchEnd}
-        navMouseLeave={navMouseLeave}
-        navMouseDown={navMouseDown}
+        changeApplicationState={changeApplicationState}
+        setBackgroundView={setBackgroundView}
       />
     </section>
   );
