@@ -31,7 +31,7 @@ const MobileWallpapers = () => {
               callToast("Wallpaper Changed");
             }}
           >
-            <div className="absolute inset-0 transition-transform group-active:scale-95">
+            <div className="absolute inset-0 transition-transform group-active:scale-95 bg-slate-700">
               {desktopWallpapers[Number(desktopWallpaperId)]}
             </div>
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40 opacity-0         
