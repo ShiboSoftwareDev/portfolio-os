@@ -51,7 +51,6 @@ const BackgroundAppWindow = ({
     setMouseStartPosition({ y: e.clientY, x: e.clientX });
     setIsTouched(true);
     setTouchedApp(true);
-    setClicable(false);
   };
 
   const appMouseUp = (e: MouseEvent, title: AVAILABLE_APPLICATION_NAMES) => {
