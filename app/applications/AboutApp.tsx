@@ -144,15 +144,15 @@ const AboutApp = () => {
           <div className="absolute left-0 top-0 bottom-0 w-4 bg-gradient-to-r from-[#0A192F] to-transparent z-10" />
           <div className="absolute right-0 top-0 bottom-0 w-4 bg-gradient-to-l from-[#0A192F] to-transparent z-10" />
 
-          <div className="flex overflow-x-auto scrollbar-hide py-2">
-            <div className="flex gap-3 px-4 mx-auto">
+          <div className="flex py-2">
+            <div className="flex gap-2 mx-auto">
               {tabs.map((tab) => (
                 <motion.button
                   key={tab.id}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className={`                                                                                                
-                 relative px-6 py-3 rounded-xl flex items-center gap-2                                                     
+                 relative px-4 py-2 rounded-xl flex items-center gap-2                                                     
                  transition-all duration-300 ease-out                                                                      
                  ${
                     activeTab === tab.id
