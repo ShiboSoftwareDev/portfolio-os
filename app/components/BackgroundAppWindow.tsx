@@ -7,19 +7,26 @@ import { useChangeApplicationsState } from "../helpers/useChangeApplicationsStat
 const BackgroundAppWindow = ({
   title,
   setBackgroundView,
+  backgroundView,
   setTouchedApp,
 }: {
   title: AVAILABLE_APPLICATION_NAMES;
+  state: string;
   setBackgroundView: (state: boolean) => void;
+  backgroundView: boolean;
   setTouchedApp: (state: boolean) => void;
 }) => {
   const changeApplicationState = useChangeApplicationsState();
-  const [touchStartPosition, setTouchStartPostion] = useState(0);
-  const [mouseStartPosition, setMouseStartPosition] = useState(0);
+  const [touchStartPosition, setTouchStartPostion] = useState({ x: 0, y: 0 });
+  const [mouseStartPosition, setMouseStartPosition] = useState({ x: 0, y: 0 });
   const [isTouched, setIsTouched] = useState(false);
+  const [clickable, setClicable] = useState(false);
 
   const appTouchStart = (e: TouchEvent) => {
-    setTouchStartPostion(e.changedTouches[0].clientY);
+    setTouchStartPostion({
+      y: e.changedTouches[0].clientY,
+      x: e.changedTouches[0].clientX,
+    });
     setIsTouched(true);
     setTouchedApp(true);
   };
@@ -27,22 +34,46 @@ const BackgroundAppWindow = ({
   const appTouchEnd = (e: TouchEvent, title: AVAILABLE_APPLICATION_NAMES) => {
     setIsTouched(false);
     setTouchedApp(false);
-    if (touchStartPosition > e.changedTouches[0].clientY + 100) {
+    if (touchStartPosition.y > e.changedTouches[0].clientY + 100) {
       changeApplicationState(title, "closed");
+    } else if (
+      touchStartPosition.y < e.changedTouches[0].clientY + 20 &&
+      touchStartPosition.y > e.changedTouches[0].clientY - 20 &&
+      touchStartPosition.x < e.changedTouches[0].clientX + 20 &&
+      touchStartPosition.x > e.changedTouches[0].clientX - 20
+    ) {
+      appClicked(title);
     }
   };
 
   const appMouseDown = (e: MouseEvent) => {
-    setMouseStartPosition(e.clientY);
+    if (!clickable) return;
+    setMouseStartPosition({ y: e.clientY, x: e.clientX });
     setIsTouched(true);
     setTouchedApp(true);
+    setClicable(false);
   };
 
   const appMouseUp = (e: MouseEvent, title: AVAILABLE_APPLICATION_NAMES) => {
+    if (!clickable) return;
     setIsTouched(false);
     setTouchedApp(false);
-    if (mouseStartPosition > e.clientY + 100) {
+    if (mouseStartPosition.y > e.clientY + 100) {
       changeApplicationState(title, "closed");
+    } else if (
+      mouseStartPosition.y < e.clientY + 20 &&
+      mouseStartPosition.y > e.clientY - 20 &&
+      mouseStartPosition.x < e.clientX + 20 &&
+      mouseStartPosition.x > e.clientX - 20
+    ) {
+      appClicked(title);
+    }
+    setClicable(false);
+  };
+
+  const appMouseMove = () => {
+    if (!clickable) {
+      setClicable(true);
     }
   };
 
@@ -53,12 +84,12 @@ const BackgroundAppWindow = ({
 
   return (
     <div
-      className="absolute w-full h-full z-20"
-      onClick={() => appClicked(title)}
+      className={`absolute w-full h-full z-20 ${!backgroundView && "hidden"}`}
       onTouchEnd={(e) => appTouchEnd(e, title)}
       onTouchStart={(e) => appTouchStart(e)}
       onMouseDown={(e) => appMouseDown(e)}
       onMouseUp={(e) => appMouseUp(e, title)}
+      onMouseMove={() => appMouseMove()}
     >
       {isTouched && (
         <div

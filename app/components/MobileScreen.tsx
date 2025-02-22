@@ -5,10 +5,10 @@ import useApplicationManager from "../helpers/useApplicationManager";
 import { useChangeApplicationsState } from "../helpers/useChangeApplicationsState";
 import { MouseEvent, TouchEvent, useEffect, useState } from "react";
 import Clock from "./Clock";
-import BackgroundAppWindow from "./BackgroundAppWindow";
 import definePlatform from "../utils/definePlatform";
 import { useRouter } from "next/navigation";
 import MobileNav from "./MobileNav";
+import { AppWindow } from "./AppWindow";
 
 const MobileScreen = () => {
   const applications = useApplicationManager();
@@ -86,33 +86,17 @@ const MobileScreen = () => {
         {applications.map((application) =>
           application
             ? (
-              <div
-                className={`z-20 ${
-                  backgroundView
-                    ? "relative h-[70vh] w-[70vw] rounded-2xl overflow-hidden shadow-lg transition-transform"
-                    : ""
-                } ${
-                  application.state === "minimized" && !backgroundView
-                    ? "hidden"
-                    : ""
-                } ${touchedApps[application.title] ? "scale-95" : ""}`}
+              <AppWindow
+                backgroundView={backgroundView}
+                setBackgroundView={setBackgroundView}
+                setTouchedApps={setTouchedApps}
+                state={application.state}
+                title={application.title}
+                touchedApps={touchedApps}
                 key={application.title}
               >
-                {backgroundView
-                  ? (
-                    <BackgroundAppWindow
-                      title={application.title}
-                      setBackgroundView={setBackgroundView}
-                      setTouchedApp={(state) =>
-                        setTouchedApps((prev) => ({
-                          ...prev,
-                          [application.title]: state,
-                        }))}
-                    />
-                  )
-                  : null}
                 {application.application}
-              </div>
+              </AppWindow>
             )
             : null
         )}
