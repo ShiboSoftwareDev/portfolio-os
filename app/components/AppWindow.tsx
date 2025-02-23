@@ -33,12 +33,15 @@ export const AppWindow = (
   },
 ) => {
   useEffect(() => {
+    if (!popStateHandler) {
+      history.pushState(null, "", window.location.pathname);
+    }
     popStateHandler = () => {
+      history.pushState(null, "", window.location.pathname);
       setBackgroundView(false);
       changeApplicationState("", "minimized");
     };
 
-    history.pushState(null, "", window.location.pathname);
     if (state === "open") {
       window.addEventListener("popstate", popStateHandler, false);
     }
