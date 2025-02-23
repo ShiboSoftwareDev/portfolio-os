@@ -57,6 +57,7 @@ const MobileScreen = () => {
           application
             ? (
               <AppWindow
+                changeApplicationState={changeApplicationState}
                 backgroundView={backgroundView}
                 setBackgroundView={setBackgroundView}
                 setTouchedApps={setTouchedApps}
