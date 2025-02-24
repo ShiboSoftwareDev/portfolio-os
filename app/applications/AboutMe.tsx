@@ -6,6 +6,8 @@ import { SiLeetcode } from "react-icons/si";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Image from "next/image";
+import ImageFrame from "../components/ImageFrame";
+import PdfView from "../components/PdfView";
 
 const AboutMe = () => {
   const markdown =
@@ -92,7 +94,7 @@ Hobbies: 🏊 and 🏋️`;
         <motion.div variants={itemVariants} className="mb-8 text-center">
           <div className="relative inline-block">
             <div className="w-32 h-32 rounded-full bg-gradient-to-br from-teal-400 to-emerald-500 p-1">
-              <div className="w-full h-full rounded-full bg-teal-950 flex items-center justify-center overflow-hidden p-2">
+              <div className="w-full h-full rounded-full bg-teal-950 flex items-center justify-center overflow-hidden">
                 <Image
                   src={"/images/robots-shaking-hands.jpg"}
                   alt="robots-shaking-hands"
@@ -117,6 +119,12 @@ Hobbies: 🏊 and 🏋️`;
           </div>
         </motion.div>
 
+        <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-500 w-full text-center mb-4">
+          About Me
+        </h2>
+
+        <div className="max-w-3xl mx-auto space-y-4"></div>
+
         <div className="max-w-3xl mx-auto space-y-6">
           <motion.div
             variants={itemVariants}
@@ -126,7 +134,20 @@ Hobbies: 🏊 and 🏋️`;
               <Markdown remarkPlugins={[remarkGfm]}>{markdown}</Markdown>
             </div>
           </motion.div>
-
+          <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-500 w-full text-center">
+            Recommendation Letters
+          </h2>
+          <div className="grid grid-cols-1 gap-4">
+            <ImageFrame>
+              <PdfView pdfFilePath="pdfs/Letter1.pdf" />
+            </ImageFrame>
+            <ImageFrame>
+              <PdfView pdfFilePath="pdfs/Letter2.pdf" />
+            </ImageFrame>
+          </div>
+          <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-500  w-full text-center">
+            Contact Me
+          </h2>
           <motion.div
             variants={itemVariants}
             className="grid grid-cols-2 gap-4"
