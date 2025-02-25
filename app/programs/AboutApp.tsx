@@ -4,43 +4,19 @@ import * as emailjs from "@emailjs/browser";
 import PixiScene from "../components/PixiScene";
 import SeperatedList from "../components/SeperatedList";
 
-// <p className="text-cyan-200">
-//   Attributions:{" "}
-//   <a
-//     target="_blank"
-//     href="https://www.flaticon.com/authors/egorpolyakov"
-//     title="dragon icon"
-//   >
-//     dragon
-//   </a>
-//   {", "}
-//   <a
-//     target="_blank"
-//     href="https://www.flaticon.com/authors/logisstudio"
-//     title="dragonfly icon"
-//   >
-//     dragonfly
-//   </a>
-// </p>
-
 const features = [
   "- Open source",
   "- Desktop + Mobile versions",
   "- Customisable themes and wallpapers",
   "- Can add any kind of application as a React component",
   "- Simple architecture",
-  "- jjOpen source",
-  "- jDesktop + Mobile versions",
-  "- jjCustomisable themes and wallpapers",
-  "- jCan add any kind of application as a React component",
-  "- jSimple architecture",
 ];
 
 const about = [
   "Motivation: Born out of a desire to create a digital portfolio that stands out, blending creativity with technical precision.",
   "Technical Implementation: Built using modern technologies like Next.js, React, and Zustand, ensuring a fluid experience and robust performance.",
   "Future Plans: Expanding functionality with user customisation, real-time collaboration, and integrated feedback systems.",
-  "",
+  "Attributions: butterfly image from freepik@flaticon, dragonfly image from logisstudio@flaticon",
 ];
 
 const AboutApp = () => {
@@ -238,7 +214,7 @@ const AboutApp = () => {
                     (
                       <div>
                         <div className="w-full h-full overflow-hidden absolute top-0 left-0">
-                          <PixiScene />
+                          <PixiScene particleImage="images/butterfly.png" />
                         </div>
                         <div className="p-4 w-full">
                           <SeperatedList items={features} />
@@ -248,7 +224,7 @@ const AboutApp = () => {
                   {activeTab === "about" && (
                     <div>
                       <div className="w-full h-full overflow-hidden absolute top-0 left-0">
-                        <PixiScene />
+                        <PixiScene particleImage="images/dragonfly.png" />
                       </div>
                       <div className="p-4 w-full">
                         <SeperatedList items={about} />

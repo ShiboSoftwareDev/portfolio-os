@@ -1,7 +1,7 @@
 import { Container, Sprite, Stage, useTick } from "@pixi/react";
 import { useState } from "react";
 
-const Particle = () => {
+const Particle = ({ particleImage }: { particleImage: string }) => {
   const [position, setPosition] = useState({
     x: Math.random() * 2100,
     y: Math.random() * 2000,
@@ -19,7 +19,7 @@ const Particle = () => {
 
   return (
     <Sprite
-      image="/images/dragonfly.png"
+      image={particleImage}
       x={position.x}
       y={position.y}
       scale={1}
@@ -27,17 +27,25 @@ const Particle = () => {
   );
 };
 
-const PixiScene = () => {
+const PixiScene = ({ particleImage }: { particleImage: string }) => {
+  const [visible, setVisible] = useState(true);
   return (
     <Stage
+      onMouseOver={() => setVisible(false)}
+      onMouseOut={() => setVisible(true)}
       width={2100}
       className="absolute -top-10 -left-10"
       height={2000}
       options={{ backgroundAlpha: 0 }}
     >
-      <Container>
-        {[...Array(20)].map((_, i) => <Particle key={i} />)}
-      </Container>
+      {visible &&
+        (
+          <Container>
+            {[...Array(20)].map((_, i) => (
+              <Particle particleImage={particleImage} key={i} />
+            ))}
+          </Container>
+        )}
     </Stage>
   );
 };
