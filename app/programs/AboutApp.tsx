@@ -214,7 +214,10 @@ const AboutApp = () => {
                     (
                       <div>
                         <div className="w-full h-full overflow-hidden absolute top-0 left-0">
-                          <PixiScene particleImage="images/butterfly.png" />
+                          <PixiScene
+                            size="desktop"
+                            particleImage="images/butterfly.png"
+                          />
                         </div>
                         <div className="p-4 w-full">
                           <SeperatedList items={features} />
@@ -224,7 +227,10 @@ const AboutApp = () => {
                   {activeTab === "about" && (
                     <div>
                       <div className="w-full h-full overflow-hidden absolute top-0 left-0">
-                        <PixiScene particleImage="images/dragonfly.png" />
+                        <PixiScene
+                          size="desktop"
+                          particleImage="images/dragonfly.png"
+                        />
                       </div>
                       <div className="p-4 w-full">
                         <SeperatedList items={about} />

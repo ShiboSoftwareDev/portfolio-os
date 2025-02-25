@@ -1,10 +1,17 @@
 import { Container, Sprite, Stage, useTick } from "@pixi/react";
 import { useState } from "react";
 
-const Particle = ({ particleImage }: { particleImage: string }) => {
+const Particle = (
+  { particleImage, size }: {
+    particleImage: string;
+    size: "mobile" | "desktop";
+  },
+) => {
+  const width = size === "desktop" ? 2200 : 1100;
+  const height = size === "desktop" ? 2000 : 1000;
   const [position, setPosition] = useState({
-    x: Math.random() * 2100,
-    y: Math.random() * 2000,
+    x: Math.random() * width,
+    y: Math.random() * height,
     speedX: (Math.random() - 0.5) * 2,
     speedY: (Math.random() - 0.5) * 2,
   });
@@ -12,8 +19,8 @@ const Particle = ({ particleImage }: { particleImage: string }) => {
   useTick(() => {
     setPosition((prev) => ({
       ...prev,
-      x: (prev.x + prev.speedX + 2100) % 2100,
-      y: (prev.y + prev.speedY + 2000) % 2000,
+      x: (prev.x + prev.speedX + width) % width,
+      y: (prev.y + prev.speedY + height) % height,
     }));
   });
 
@@ -27,22 +34,29 @@ const Particle = ({ particleImage }: { particleImage: string }) => {
   );
 };
 
-const PixiScene = ({ particleImage }: { particleImage: string }) => {
+const PixiScene = (
+  { particleImage, size }: {
+    particleImage: string;
+    size: "mobile" | "desktop";
+  },
+) => {
   const [visible, setVisible] = useState(true);
   return (
     <Stage
+      onTouchStart={() => setVisible(false)}
+      onTouchEnd={() => setVisible(true)}
       onMouseOver={() => setVisible(false)}
       onMouseOut={() => setVisible(true)}
-      width={2100}
+      width={size === "desktop" ? 2200 : 1100}
       className="absolute -top-10 -left-10"
-      height={2000}
+      height={size === "desktop" ? 2000 : 1000}
       options={{ backgroundAlpha: 0 }}
     >
       {visible &&
         (
           <Container>
-            {[...Array(20)].map((_, i) => (
-              <Particle particleImage={particleImage} key={i} />
+            {[...Array(size === "desktop" ? 20 : 10)].map((_, i) => (
+              <Particle particleImage={particleImage} size={size} key={i} />
             ))}
           </Container>
         )}
