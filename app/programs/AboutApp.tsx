@@ -1,7 +1,47 @@
 import React, { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import * as emailjs from "@emailjs/browser";
-import FeaturesCanvas from "../components/canvas/FeaturesCanvas";
+import PixiScene from "../components/PixiScene";
+import SeperatedList from "../components/SeperatedList";
+
+// <p className="text-cyan-200">
+//   Attributions:{" "}
+//   <a
+//     target="_blank"
+//     href="https://www.flaticon.com/authors/egorpolyakov"
+//     title="dragon icon"
+//   >
+//     dragon
+//   </a>
+//   {", "}
+//   <a
+//     target="_blank"
+//     href="https://www.flaticon.com/authors/logisstudio"
+//     title="dragonfly icon"
+//   >
+//     dragonfly
+//   </a>
+// </p>
+
+const features = [
+  "- Open source",
+  "- Desktop + Mobile versions",
+  "- Customisable themes and wallpapers",
+  "- Can add any kind of application as a React component",
+  "- Simple architecture",
+  "- jjOpen source",
+  "- jDesktop + Mobile versions",
+  "- jjCustomisable themes and wallpapers",
+  "- jCan add any kind of application as a React component",
+  "- jSimple architecture",
+];
+
+const about = [
+  "Motivation: Born out of a desire to create a digital portfolio that stands out, blending creativity with technical precision.",
+  "Technical Implementation: Built using modern technologies like Next.js, React, and Zustand, ensuring a fluid experience and robust performance.",
+  "Future Plans: Expanding functionality with user customisation, real-time collaboration, and integrated feedback systems.",
+  "",
+];
 
 const AboutApp = () => {
   const [activeTab, setActiveTab] = useState("features");
@@ -180,7 +220,7 @@ const AboutApp = () => {
           </div>
         </div>
 
-        <div className="flex-1 overflow-hidden">
+        <div className="flex-1">
           <AnimatePresence mode="wait">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -192,55 +232,32 @@ const AboutApp = () => {
               }}
               className="h-full"
             >
-              <div className="relative p-4 inset-0 bg-gradient-to-br from-cyan-500/5 via-emerald-500/5 to-orange-500/5 rounded-2xl backdrop-blur-xl border border-white/10 h-full overflow-y-scroll">
+              <div className="relative inset-0 bg-gradient-to-br from-cyan-500/5 via-emerald-500/5 to-orange-500/5 rounded-2xl backdrop-blur-xl border border-white/10 mb-12">
                 <div className="relative">
-                  {activeTab === "features" && <FeaturesCanvas />}
+                  {activeTab === "features" &&
+                    (
+                      <div>
+                        <div className="w-full h-full overflow-hidden absolute top-0 left-0">
+                          <PixiScene />
+                        </div>
+                        <div className="p-4 w-full">
+                          <SeperatedList items={features} />
+                        </div>
+                      </div>
+                    )}
                   {activeTab === "about" && (
                     <div>
-                      <h2 className="text-2xl font-bold text-cyan-50 mb-4">
-                        About Portfolio OS
-                      </h2>
-                      <p className="text-cyan-200 mb-2">
-                        Motivation: Born out of a desire to create a digital
-                        portfolio that stands out, blending creativity with
-                        technical precision.
-                      </p>
-                      <p className="text-cyan-200 mb-2">
-                        Technical Implementation: Built using modern
-                        technologies like Next.js, React, and Zustand, ensuring
-                        a fluid experience and robust performance.
-                      </p>
-                      <p className="text-cyan-200">
-                        Future Plans: Expanding functionality with user
-                        customisation, real-time collaboration, and integrated
-                        feedback systems.
-                      </p>
-                      <p className="text-cyan-200">
-                        Attributions:{" "}
-                        <a
-                          target="_blank"
-                          href="https://www.flaticon.com/authors/egorpolyakov"
-                          title="dragon icon"
-                        >
-                          dragon
-                        </a>
-                        {", "}
-                        <a
-                          target="_blank"
-                          href="https://www.flaticon.com/authors/logisstudio"
-                          title="dragonfly icon"
-                        >
-                          dragonfly
-                        </a>
-                      </p>
+                      <div className="w-full h-full overflow-hidden absolute top-0 left-0">
+                        <PixiScene />
+                      </div>
+                      <div className="p-4 w-full">
+                        <SeperatedList items={about} />
+                      </div>
                     </div>
                   )}
                   {activeTab === "feedback" && (
-                    <div>
+                    <div className="p-4">
                       <div className="flex-row flex text-center items-center mb-4 gap-4 font-bold text-cyan-50">
-                        <h2 className="text-2xl font-bold text-cyan-50">
-                          Feedback
-                        </h2>
                         <h3 className={`text-center ${feedbackMessageColor}`}>
                           {feedbackMessage}
                         </h3>
