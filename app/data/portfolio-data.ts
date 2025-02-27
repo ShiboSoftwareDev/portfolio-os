@@ -82,14 +82,14 @@ export const projects: Project[] = [
     technologies: [
       { technology: "Next.js", category: "Fullstack" },
       { technology: "Firebase", category: "Cloud" },
-      { technology: "MongoDB", category: "Database" },
+      { technology: "Turso", category: "Database" },
       { technology: "Prisma", category: "Database" },
       { technology: "tRPC", category: "Tooling" },
       { technology: "Cloudinary", category: "Cloud" },
       { technology: "Bun", category: "Runtime" },
     ],
-    demoUrl: "",
-    sourceUrl: "https://github.com/Ajerly/Ajerly",
+    demoUrl: "https://ajerly.vercel.app/",
+    sourceUrl: "https://github.com/AnasSarkiz/Ajerly",
   },
 ];
 
