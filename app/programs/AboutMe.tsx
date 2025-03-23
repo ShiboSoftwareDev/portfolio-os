@@ -7,8 +7,8 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import Image from "next/image";
-import ImageFrame from "../components/ImageFrame";
-import PdfView from "../components/PdfView";
+// import ImageFrame from "../components/ImageFrame";
+// import PdfView from "../components/PdfView";
 
 const AboutMe = () => {
   const markdown =
@@ -133,7 +133,7 @@ Hobbies: 🏊 and 🏋️`;
               <Markdown remarkPlugins={[remarkGfm]}>{markdown}</Markdown>
             </div>
           </motion.div>
-          <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-500 w-full text-center">
+          {/* <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-500 w-full text-center">
             Recommendation Letters
           </h2>
           <div className="grid grid-cols-2 gap-4">
@@ -143,7 +143,7 @@ Hobbies: 🏊 and 🏋️`;
             <ImageFrame>
               <PdfView pdfFilePath="pdfs/Letter2.pdf" />
             </ImageFrame>
-          </div>
+          </div> */}
           <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-500  w-full text-center">
             Contact Me
           </h2>
